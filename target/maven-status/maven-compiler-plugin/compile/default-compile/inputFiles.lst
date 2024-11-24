@@ -1,0 +1,9 @@
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/BibliotekaApplication.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/controllers/AuthorController.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/controllers/BookController.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/dto/AuthorDTO.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/dto/BookDTO.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/model/Author.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/model/Book.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/repository/AuthorRepository.java
+/Users/brbn/Documents/GitHub/biblioteka/src/main/java/com/api/biblioteka/repository/BookRepository.java

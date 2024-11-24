@@ -16,15 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.biblioteka.dto.AuthorDTO;
 import com.api.biblioteka.model.Author;
 import com.api.biblioteka.repository.AuthorRepository;
+import com.api.biblioteka.repository.BookRepository;
 
 @RestController
 @RequestMapping("/author")
 public class AuthorController {
     
     private final AuthorRepository authorRepository;
+    private final BookRepository bookRepository;
 
-        public AuthorController(AuthorRepository authorRepository) {
+        public AuthorController(AuthorRepository authorRepository, BookRepository bookRepository) {
         this.authorRepository = authorRepository;
+        this.bookRepository = bookRepository;
         }
 
         @GetMapping("")
@@ -92,12 +95,15 @@ public class AuthorController {
         public ResponseEntity<Void> deleteAuthor(@PathVariable Long id) {
             try {
                 if (authorRepository.existsById(id)) {
+                    Author author = authorRepository.findById(id).orElseThrow();
+                    bookRepository.deleteAll(author.getBooks()); // Ensure you have a bookRepository
                     authorRepository.deleteById(id);
                     return ResponseEntity.noContent().build();
                 } else {
                     return ResponseEntity.status(404).build();
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 return ResponseEntity.status(500).build();
             }
         }
