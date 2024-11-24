@@ -3,7 +3,6 @@ package com.api.biblioteka.dto;
 import java.util.List;
 
 import com.api.biblioteka.model.Book;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AuthorDTO {
     

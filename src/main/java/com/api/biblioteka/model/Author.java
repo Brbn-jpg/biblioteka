@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 @Table
 public class Author {
 
-  private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long author_id;
+  private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long author_id;
 
 
   public Long getAuthor_id() {
