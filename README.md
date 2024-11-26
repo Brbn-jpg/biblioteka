@@ -26,7 +26,7 @@ System do zarządzania biblioteką za pomocą architektury REST API, umożliwia 
 
 ### Książki
 | Metoda  | Endpoint | Opis |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- |
 | GET | /books  |   Pokazuje wszystkie książki |
 | GET | /books/{id}  |  Pokazuje daną książkę |
 | GET | /books/{id}/details | Pokazuje daną książkę oraz autora |
@@ -36,7 +36,7 @@ System do zarządzania biblioteką za pomocą architektury REST API, umożliwia 
 
 ### Autorzy
 | Metoda  | Endpoint | Opis |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- |
 | GET | /author  |   Pokazuje wszystkich autorów |
 | GET | /author/{id}  |  Pokazuje danego autora |
 | GET | /author/{id}/details | Pokazuje danego autora oraz jego książki |
