@@ -1,5 +1,7 @@
 package com.api.biblioteka;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -20,6 +22,50 @@ public class BookControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    public void testGetBookById() throws Exception {
+        mockMvc.perform(get("/books/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.name").value("Książka A"));
+    }
+
+    @Test
+    public void testGetBookByIdDetailed() throws Exception {
+        mockMvc.perform(get("/books/3/details")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(3))
+                .andExpect(jsonPath("$.name").value("Książka C"))
+                .andExpect(jsonPath("$.author.first_name").value("Piotr"))
+                .andExpect(jsonPath("$.author.last_name").value("Zieliński"))
+                .andExpect(jsonPath("$.author.author_id").value(3));
+    }
+
+    @Test
+    public void testGetBookByIdNotFound() throws Exception {
+        mockMvc.perform(get("/books/999999")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testUpdateBook() throws Exception {
+        String updatedBookJson = "{\"name\":\"nowa ksiazka\",\"author_id\":\"2\"}";
+
+        mockMvc.perform(put("/books/updateBook/2")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(updatedBookJson))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value("2"))
+                .andExpect(jsonPath("$.name").value("nowa ksiazka"))
+                .andExpect(jsonPath("$.author.first_name").value("Anna"))
+                .andExpect(jsonPath("$.author.last_name").value("Nowak"))
+                .andExpect(jsonPath("$.author.author_id").value(2));
+    }
+
+
+    @Test
     public void testAddBook() throws Exception {
         String newBookJson = "{\"name\":\"ksiazka abc\",\"author_id\":\"1\"}";
 
@@ -27,19 +73,16 @@ public class BookControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newBookJson))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(6))
                 .andExpect(jsonPath("$.name").value("ksiazka abc"))
+                .andExpect(jsonPath("$.author.first_name").value("Jan"))
+                .andExpect(jsonPath("$.author.last_name").value("Kowalski"))
                 .andExpect(jsonPath("$.author.author_id").value(1));
     }
 
     @Test
-    public void testUpdateBook() throws Exception {
-        String updatedBookJson = "{\"name\":\"Nowa nazwa ksiazki\",\"author_id\":\"1\"}";
-
-        mockMvc.perform(put("/books/updateBook/1")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(updatedBookJson))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("Nowa nazwa ksiazki"))
-                .andExpect(jsonPath("$.author.author_id").value(1));
+    public void testDeleteBook() throws Exception {
+        mockMvc.perform(delete("/books/deleteBook/1"))
+                .andExpect(status().isNoContent());
     }
 }

@@ -64,19 +64,31 @@ public class BookController {
     }
 
     @PostMapping("/addBook")
-    public ResponseEntity<Book> addBook(@RequestBody Map<String, Object> payload) {
+    public ResponseEntity<BookDTO> addBook(@RequestBody Map<String, Object> payload) {
         try {
             String name = (String) payload.get("name");
             Long authorId = Long.valueOf((String) payload.get("author_id"));
             Optional<Author> authorOptional = authorRepository.findById(authorId);
-
+    
             if (authorOptional.isPresent()) {
                 Author author = authorOptional.get();
                 Book book = new Book();
                 book.setName(name);
                 book.setAuthor(author);
                 Book savedBook = bookRepository.save(book);
-                return ResponseEntity.ok(savedBook);
+    
+                BookDTO bookDTO = new BookDTO();
+                bookDTO.setId(savedBook.getId());
+                bookDTO.setName(savedBook.getName());
+                bookDTO.setAuthor(
+                    new BookDTO.AuthorDTO(
+                        author.getAuthor_id(),
+                        author.getFirstName(),
+                        author.getLastName()
+                    )
+                );
+    
+                return ResponseEntity.ok(bookDTO);
             } else {
                 return ResponseEntity.status(404).body(null);
             }
@@ -84,9 +96,10 @@ public class BookController {
             return ResponseEntity.status(500).build();
         }
     }
+    
 
     @PutMapping("/updateBook/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Map<String, Object> payload){
+    public ResponseEntity<BookDTO> updateBook(@PathVariable Long id, @RequestBody Map<String, Object> payload){
         try {
             Optional<Book> bookOptional = bookRepository.findById(id);
             if (bookOptional.isPresent()) {
@@ -100,7 +113,18 @@ public class BookController {
                     book.setName(name);
                     book.setAuthor(author);
                     Book updatedBook = bookRepository.save(book);
-                    return ResponseEntity.ok(updatedBook);
+
+                    BookDTO bookDTO = new BookDTO();
+                    bookDTO.setId(updatedBook.getId());
+                    bookDTO.setName(updatedBook.getName());
+                    bookDTO.setAuthor(
+                    new BookDTO.AuthorDTO(
+                        author.getAuthor_id(),
+                        author.getFirstName(),
+                        author.getLastName()
+                    )
+                );
+                    return ResponseEntity.ok(bookDTO);
                 } else {
                     return ResponseEntity.status(404).body(null);
                 }
