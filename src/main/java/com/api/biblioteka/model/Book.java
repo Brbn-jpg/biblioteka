@@ -18,7 +18,6 @@ public class Book {
 
   private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long book_id;
 
-
   public Long getId() {
     return book_id;
 }

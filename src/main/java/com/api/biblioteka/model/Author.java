@@ -19,7 +19,6 @@ public class Author {
 
   private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long author_id;
 
-
   public Long getAuthor_id() {
     return author_id;
 }

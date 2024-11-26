@@ -1,0 +1,41 @@
+* {
+  text-align: center;
+}
+
+body {
+  background-color: #ebe9e1;
+  font-family: sans-serif;
+  color: #444;
+  height: 95vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.start-page {
+  font-size: 20px;
+}
+
+td {
+  padding: 10px;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #444;
+}
+
+a:hover,
+a:visited {
+  display: block;
+  color: #111;
+  transform: scale(1.1);
+}
