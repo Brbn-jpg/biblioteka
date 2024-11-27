@@ -4,21 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Kuźnicki 61961 - Autorzy endpoint</title>
+    <title>Kuźnicki 61961 - Update Book endpoint</title>
   </head>
   <body>
     <header>
-      <h1>Wszyscy autorzy</h1>
+      <h1>Zaktualizuj książkę</h1>
     </header>
     <article>
-      <table>
-        <thead>
-          <td>Imie</td>
-          <td>Nazwisko</td>
-          <td>Id autora</td>
-        </thead>
-        <tbody class="tabela"></tbody>
-      </table>
+      <form>
+        <input
+          type="text"
+          class="title"
+          placeholder="Podaj tytuł książki"
+        /><br />
+        <input
+          type="number"
+          class="author-id"
+          placeholder="Podaj id autora"
+        /><br />
+        <input
+          type="number"
+          class="book-id"
+          placeholder="Podaj ID książki"
+        /><br />
+        <button type="submit">Zaktualizuj książkę</button>
+      </form>
+      <h3 class="updated invis"></h3>
     </article>
     <footer>
       <nav>
@@ -50,6 +61,6 @@
         </table>
       </nav>
     </footer>
-    <script src="JS/autorzy.js"></script>
+    <script src="JS/zaktualizujKsiazke.js"></script>
   </body>
 </html>

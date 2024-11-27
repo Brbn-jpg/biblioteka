@@ -4,21 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Kuźnicki 61961 - Autorzy endpoint</title>
+    <title>Kuźnicki 61961 - update author endpoint</title>
   </head>
   <body>
     <header>
-      <h1>Wszyscy autorzy</h1>
+      <h1>Zaktualizuj autora</h1>
     </header>
     <article>
-      <table>
-        <thead>
-          <td>Imie</td>
-          <td>Nazwisko</td>
-          <td>Id autora</td>
-        </thead>
-        <tbody class="tabela"></tbody>
-      </table>
+      <form>
+        <input
+          type="number"
+          class="author-id"
+          placeholder="Podaj ID autora"
+        /><br />
+        <input
+          type="text"
+          class="firstName"
+          placeholder="Podaj nowe imię autora"
+        /><br />
+        <input
+          type="text"
+          class="lastName"
+          placeholder="Podaj nowe nazwisko autora"
+        /><br />
+        <button type="submit">Zaktualizuj autora</button>
+      </form>
+      <h3 class="updated invis"></h3>
     </article>
     <footer>
       <nav>
@@ -50,6 +61,6 @@
         </table>
       </nav>
     </footer>
-    <script src="JS/autorzy.js"></script>
+    <script src="JS/zaktualizujAutora.js"></script>
   </body>
 </html>

@@ -30,12 +30,12 @@ public class AuthorControllerTest {
 
     @Test
     public void testGetAuthorById() throws Exception {
-        mockMvc.perform(get("/author/1")
+        mockMvc.perform(get("/author/2")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.author_id").value(1))
-                .andExpect(jsonPath("$.firstName").value("Jan"))
-                .andExpect(jsonPath("$.lastName").value("Kowalski"));
+                .andExpect(jsonPath("$.author_id").value(2))
+                .andExpect(jsonPath("$.firstName").value("Anna"))
+                .andExpect(jsonPath("$.lastName").value("Nowak"));
     }
 
     @Test

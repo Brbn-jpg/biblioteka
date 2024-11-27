@@ -1,5 +1,5 @@
 document.querySelector(".check").addEventListener("click", async (event) => {
-  event.preventDefault(); // Zapobiega przeładowaniu strony
+  event.preventDefault();
 
   const number = document.querySelector(".number-input").value;
   if (!number) {
@@ -32,10 +32,8 @@ function fillTable(data) {
     return;
   }
 
-  // Wyczyść tabelę przed dodaniem nowych danych
   tableBody.innerHTML = "";
 
-  // Dodaj dane do tabeli
   const row = document.createElement("tr");
 
   const bookIdCell = document.createElement("td");

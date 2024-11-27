@@ -1,7 +1,16 @@
-* {
+h1,
+h2,
+h3,
+h5,
+p,
+footer,
+form {
   text-align: center;
 }
 
+h5 {
+  margin-bottom: -5px;
+}
 body {
   background-color: #ebe9e1;
   font-family: sans-serif;
@@ -10,6 +19,12 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 table {
@@ -38,4 +53,24 @@ a:visited {
   display: block;
   color: #111;
   transform: scale(1.1);
+}
+
+.invis {
+  display: none;
+}
+
+form input {
+  padding: 6px 12px;
+  margin-bottom: 12px;
+}
+
+form button {
+  padding: 6px 12px;
+}
+
+form input,
+form button {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.1);
 }

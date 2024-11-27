@@ -4,21 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Kuźnicki 61961 - Autorzy endpoint</title>
+    <title>Kuźnicki 61961 - Add Book endpoint</title>
   </head>
   <body>
     <header>
-      <h1>Wszyscy autorzy</h1>
+      <h1>Dodaj książkę</h1>
     </header>
     <article>
-      <table>
-        <thead>
-          <td>Imie</td>
-          <td>Nazwisko</td>
-          <td>Id autora</td>
-        </thead>
-        <tbody class="tabela"></tbody>
-      </table>
+      <form action="ksiazki.html">
+        <input
+          type="text"
+          class="title"
+          placeholder="Podaj tytuł książki"
+          required
+        /><br />
+        <input
+          type="text"
+          class="author-id"
+          placeholder="Podaj id autora"
+          required
+        /><br />
+        <button type="submit" class="Add">Dodaj</button>
+      </form>
+      <h3 class="added invis"></h3>
     </article>
     <footer>
       <nav>
@@ -50,6 +58,6 @@
         </table>
       </nav>
     </footer>
-    <script src="JS/autorzy.js"></script>
+    <script src="JS/dodajKsiazke.js"></script>
   </body>
 </html>

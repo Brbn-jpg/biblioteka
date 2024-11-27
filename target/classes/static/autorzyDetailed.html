@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Kuźnicki 61961 - Autorzy endpoint</title>
+    <title>Kuźnicki 61961 - Autorzy detailed endpoint</title>
   </head>
   <body>
     <header>
-      <h1>Wszyscy autorzy</h1>
+      <h1>Wszyscy autorzy i szczegóły</h1>
     </header>
     <article>
+      <form action="autorzyDetailed.html">
+        <input
+          type="number"
+          class="number-input"
+          placeholder="Podaj id autora"
+        /><br />
+        <button type="submit" class="check">Sprawdź</button>
+      </form>
+
       <table>
         <thead>
-          <td>Imie</td>
-          <td>Nazwisko</td>
           <td>Id autora</td>
+          <td>Imię</td>
+          <td>Nazwisko</td>
+          <td>Tytuł</td>
+          <td>Id książki</td>
         </thead>
         <tbody class="tabela"></tbody>
       </table>
@@ -50,6 +61,6 @@
         </table>
       </nav>
     </footer>
-    <script src="JS/autorzy.js"></script>
+    <script src="JS/autorzyDetailed.js"></script>
   </body>
 </html>
