@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/queries.css" />
     <title>Kuźnicki 61961 - Spring Boot REST Api</title>
   </head>
   <body>
@@ -11,31 +12,38 @@
       <h1>Strona startowa do Spring Boot REST Api</h1>
     </header>
     <article>
-      <h2>📖 System biblioteczny</h2>
-      <p>
-        System do zarządzania biblioteką za pomocą architektury REST API,
-        umożliwia proste zarządzanie biblioteką
-      </p>
-      <h3>🛠️ Funkcje</h3>
-      <h5>Zarządzanie książkami</h5>
-      <div class="list">
-        <ul>
-          <li>Pełen wgląd do bazy książek</li>
-          <li>Pełen wgląd do bazy książek oraz ich szczegółów</li>
-          <li>Dodawanie książek do bazy danych</li>
-          <li>Aktualizowanie danych książek</li>
-          <li>Usuwanie książek z bazy danych</li>
-        </ul>
+      <div class="title">
+        <h2>📖 System biblioteczny</h2>
+        <p class="title-text">
+          System do zarządzania biblioteką za pomocą architektury REST API,
+          umożliwia proste zarządzanie biblioteką
+        </p>
       </div>
-      <h5>Zarządzanie autorami</h5>
-      <div class="list">
-        <ul>
-          <li>Pełen wgląd do bazy autorów</li>
-          <li>Pełen wgląd do bazy autorów oraz ich książek</li>
-          <li>Dodawanie autorów do bazy danych</li>
-          <li>Aktualizowanie danych autorów</li>
-          <li>Usuwanie autorów z bazy danych</li>
-        </ul>
+      <div class="big-funkcje">
+        <div class="funkcje">
+          <p class="icon-funkcje">🛠️</p>
+          <h3>Funkcje</h3>
+          <h5>Zarządzanie książkami</h5>
+          <div class="list">
+            <ul>
+              <li><p>Pełen wgląd do bazy książek</p></li>
+              <li><p>Pełen wgląd do bazy książek oraz ich szczegółów</p></li>
+              <li><p>Dodawanie książek do bazy danych</p></li>
+              <li><p>Aktualizowanie danych książek</p></li>
+              <li><p>Usuwanie książek z bazy danych</p></li>
+            </ul>
+          </div>
+          <h5>Zarządzanie autorami</h5>
+          <div class="list">
+            <ul>
+              <li><p>Pełen wgląd do bazy autorów</p></li>
+              <li><p>Pełen wgląd do bazy autorów oraz ich książek</p></li>
+              <li><p>Dodawanie autorów do bazy danych</p></li>
+              <li><p>Aktualizowanie danych autorów</p></li>
+              <li><p>Usuwanie autorów z bazy danych</p></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </article>
     <footer>
@@ -68,5 +76,13 @@
         </table>
       </nav>
     </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

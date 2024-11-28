@@ -1,0 +1,118 @@
+/* *********************** */
+/* BELOW 1344px (smaller desktop) */
+/* *********************** */
+
+@media (max-width: 84em) {
+  body {
+    height: 95vh;
+  }
+  header,
+  article,
+  footer {
+    height: auto;
+  }
+  .main-nav-list,
+  .btn-mobile-nav {
+    display: none;
+  }
+}
+
+/* *********************** */
+/* BELOW 1200px (Landscape Tablets) */
+/* *********************** */
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+  h1 {
+    font-size: 3.4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.6rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  p,
+  a,
+  td {
+    font-size: 1.8rem;
+  }
+  .main-nav-list,
+  .btn-mobile-nav {
+    display: none;
+  }
+}
+
+/* *********************** */
+/* BELOW 930px (Tablets) */
+/* *********************** */
+
+@media (max-width: 58em) {
+  html {
+    font-size: 50%;
+  }
+  h1 {
+    font-size: 3.6rem;
+  }
+  h2 {
+    font-size: 3.2rem;
+  }
+  h3 {
+    font-size: 2.8rem;
+  }
+  h5 {
+    font-size: 1.8rem;
+  }
+  p,
+  a,
+  td {
+    font-size: 2rem;
+  }
+  .main-nav-list,
+  .btn-mobile-nav {
+    display: none;
+  }
+}
+
+/* *********************** */
+/* BELOW 700px (Smaller Tablets / Landscape phone) */
+/* *********************** */
+
+@media (max-width: 44em) {
+  body {
+    height: 100vh;
+  }
+  h1 {
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+
+  footer {
+    width: 100vw;
+    border-radius: 0;
+  }
+
+  .start-page {
+    font-size: 2.2rem;
+  }
+
+  footer table td {
+    padding: 2rem;
+  }
+}
+/* *********************** */
+/* BELOW 550px (Phones) */
+/* *********************** */
+
+@media (max-width: 34em) {
+  .icon-funkcje {
+    position: relative;
+    width: 100%;
+    transform: rotate(-15deg) translate(200%) scale(5);
+  }
+}

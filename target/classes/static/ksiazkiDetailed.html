@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/queries.css" />
     <title>Kuźnicki 61961 - Książki detailed endpoint</title>
   </head>
   <body>
@@ -19,17 +20,19 @@
         /><br />
         <button type="submit" class="check">Sprawdź</button>
       </form>
-
-      <table>
-        <thead>
-          <td>Id książki</td>
-          <td>Tytuł</td>
-          <td>Imię</td>
-          <td>Nazwisko</td>
-          <td>Id autora</td>
-        </thead>
-        <tbody class="tabela"></tbody>
-      </table>
+      <div class="output-div">
+        <div></div>
+        <table class="output-table">
+          <thead>
+            <td>Id książki</td>
+            <td>Tytuł</td>
+            <td>Imię</td>
+            <td>Nazwisko</td>
+            <td>Id autora</td>
+          </thead>
+          <tbody class="tabela"></tbody>
+        </table>
+      </div>
     </article>
     <footer>
       <nav>
