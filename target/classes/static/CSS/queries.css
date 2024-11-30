@@ -11,9 +11,22 @@
   footer {
     height: auto;
   }
-  .main-nav-list,
-  .btn-mobile-nav {
-    display: none;
+  h1 {
+    font-size: 3.4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.6rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  p,
+  a,
+  td {
+    font-size: 1.8rem;
   }
 }
 
@@ -42,10 +55,6 @@
   td {
     font-size: 1.8rem;
   }
-  .main-nav-list,
-  .btn-mobile-nav {
-    display: none;
-  }
 }
 
 /* *********************** */
@@ -72,10 +81,6 @@
   a,
   td {
     font-size: 2rem;
-  }
-  .main-nav-list,
-  .btn-mobile-nav {
-    display: none;
   }
 }
 
