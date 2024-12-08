@@ -137,8 +137,14 @@ form button:hover {
   cursor: pointer;
 }
 
+form select {
+  padding: 0.6rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
 form input,
-form button {
+form button,
+form select {
   border-radius: 5px;
   border: none;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.1);

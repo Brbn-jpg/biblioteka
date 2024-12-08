@@ -1,13 +1,40 @@
+async function populateBooksDetailedSelect() {
+  const selectElement = document.querySelector(".book-id");
+  try {
+    const response = await fetch("http://localhost:8080/books");
+
+    if (!response.ok) {
+      throw new Error(`Błąd: ${response.status}`);
+    }
+
+    const books = await response.json();
+    booksData = books;
+
+    books.forEach((book) => {
+      const option = document.createElement("option");
+      option.value = book.id;
+      option.textContent = `${book.name}`;
+      selectElement.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Błąd podczas wczytywania ksiązek:", error.message);
+    alert("Nie udało się załadować listy ksiązek.");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", populateBooksDetailedSelect);
+
 document.querySelector(".check").addEventListener("click", async (event) => {
   event.preventDefault();
 
-  const number = document.querySelector(".number-input").value;
-  if (!number) {
-    alert("Proszę wpisać numer!");
+  const selectedBookID = document.querySelector(".book-id").value;
+
+  if (!selectedBookID) {
+    alert("Proszę wybrać ksiązkę z listy.");
     return;
   }
 
-  const apiURL = `http://localhost:8080/books/${number}/details`;
+  const apiURL = `http://localhost:8080/books/${selectedBookID}/details`;
 
   try {
     const response = await fetch(apiURL);

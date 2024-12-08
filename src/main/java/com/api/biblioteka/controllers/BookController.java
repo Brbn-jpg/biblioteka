@@ -101,42 +101,49 @@ public class BookController {
     
 
     @PutMapping("/updateBook/{id}")
-    public ResponseEntity<BookDTO> updateBook(@PathVariable Long id, @RequestBody Map<String, Object> payload){
+    public ResponseEntity<BookDTO> updateBook(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
         try {
             Optional<Book> bookOptional = bookRepository.findById(id);
             if (bookOptional.isPresent()) {
                 Book book = bookOptional.get();
+
                 String name = (String) payload.get("name");
-                Long authorId = Long.valueOf((String) payload.get("author_id"));
-                Optional<Author> authorOptional = authorRepository.findById(authorId);
-
-                if (authorOptional.isPresent()) {
-                    Author author = authorOptional.get();
+                if (name != null) {
                     book.setName(name);
-                    book.setAuthor(author);
-                    Book updatedBook = bookRepository.save(book);
-
-                    BookDTO bookDTO = new BookDTO();
-                    bookDTO.setId(updatedBook.getId());
-                    bookDTO.setName(updatedBook.getName());
-                    bookDTO.setAuthor(
-                    new BookDTO.AuthorDTO(
-                        author.getAuthor_id(),
-                        author.getFirstName(),
-                        author.getLastName()
-                    )
-                );
-                    return ResponseEntity.ok(bookDTO);
-                } else {
-                    return ResponseEntity.status(404).body(null);
                 }
+
+                Long authorId = (Long) payload.get("author_id");
+                if (authorId != null) {
+                    Optional<Author> authorOptional = authorRepository.findById(authorId);
+                    if (authorOptional.isPresent()) {
+                        Author author = authorOptional.get();
+                        book.setAuthor(author);
+                    } else {
+                        return ResponseEntity.status(404).body(null);
+                    }
+                }
+
+                Book updatedBook = bookRepository.save(book);
+
+                BookDTO bookDTO = new BookDTO();
+                bookDTO.setId(updatedBook.getId());
+                bookDTO.setName(updatedBook.getName());
+                bookDTO.setAuthor(new BookDTO.AuthorDTO(
+                    updatedBook.getAuthor().getAuthor_id(),
+                    updatedBook.getAuthor().getFirstName(),
+                    updatedBook.getAuthor().getLastName()
+                ));
+
+                return ResponseEntity.ok(bookDTO);
             } else {
-                return ResponseEntity.status(404).body(null);
+                return ResponseEntity.status(404).body(null); 
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(500).build();
         }
     }
+
 
     @DeleteMapping("/deleteBook/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {

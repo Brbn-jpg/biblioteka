@@ -75,21 +75,30 @@ public class AuthorController {
         }
 
         @PutMapping("/updateAuthor/{id}")
-        public ResponseEntity<Author> updateAuthor(@PathVariable Long id, @RequestBody Author updatedAuthor) {
+        public ResponseEntity<?> updateAuthor(@PathVariable Long id, @RequestBody Author updatedAuthor) {
             try {
                 Optional<Author> authorOptional = authorRepository.findById(id);
-                if (authorOptional.isPresent()) {
-                    Author author = authorOptional.get();
-                    author.setFirstName(updatedAuthor.getFirstName());
-                    author.setLastName(updatedAuthor.getLastName());
-                    author.setBooks(updatedAuthor.getBooks());
-                    Author savedAuthor = authorRepository.save(author);
-                    return ResponseEntity.ok(savedAuthor);
-                } else {
-                    return ResponseEntity.status(404).body(null);
+                if (authorOptional.isEmpty()) {
+                    return ResponseEntity.status(404).body("Author not found");
                 }
+
+                Author author = authorOptional.get();
+                if (updatedAuthor.getFirstName() != null && !updatedAuthor.getFirstName().isEmpty()) {
+                    author.setFirstName(updatedAuthor.getFirstName());
+                }
+                if (updatedAuthor.getLastName() != null && !updatedAuthor.getLastName().isEmpty()) {
+                    author.setLastName(updatedAuthor.getLastName());
+                }
+                if (updatedAuthor.getBooks() != null) {
+                    author.setBooks(updatedAuthor.getBooks());
+                }
+
+                Author savedAuthor = authorRepository.save(author);
+                return ResponseEntity.ok(savedAuthor);
+
             } catch (Exception e) {
-                return ResponseEntity.status(500).build();
+                e.printStackTrace();
+                return ResponseEntity.status(500).body("Error: " + e.getMessage());
             }
         }
 
@@ -98,7 +107,7 @@ public class AuthorController {
             try {
                 if (authorRepository.existsById(id)) {
                     Author author = authorRepository.findById(id).orElseThrow();
-                    bookRepository.deleteAll(author.getBooks()); // Ensure you have a bookRepository
+                    bookRepository.deleteAll(author.getBooks());
                     authorRepository.deleteById(id);
                     return ResponseEntity.noContent().build();
                 } else {
