@@ -44,7 +44,7 @@ public class BookControllerTest {
 
     @Test
     public void testGetBookByIdNotFound() throws Exception {
-        mockMvc.perform(get("/books/999999")
+        mockMvc.perform(get("/books/999999999999999")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -63,10 +63,6 @@ public class BookControllerTest {
                 .andExpect(jsonPath("$.author.firstName").value("Anna"))
                 .andExpect(jsonPath("$.author.lastName").value("Nowak"));
     }
-    
-
-
-
 
     @Test
     public void testAddBook() throws Exception {
