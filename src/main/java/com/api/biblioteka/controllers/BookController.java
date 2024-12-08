@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -101,48 +102,30 @@ public class BookController {
     
 
     @PutMapping("/updateBook/{id}")
-    public ResponseEntity<BookDTO> updateBook(@PathVariable Long id, @RequestBody Map<String, Object> payload) {
-        try {
-            Optional<Book> bookOptional = bookRepository.findById(id);
-            if (bookOptional.isPresent()) {
-                Book book = bookOptional.get();
+    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        if (optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+            book.setName(bookDetails.getName());
 
-                String name = (String) payload.get("name");
-                if (name != null) {
-                    book.setName(name);
+            if (bookDetails.getAuthor() != null && bookDetails.getAuthor().getAuthor_id() != null) {
+                Optional<Author> authorOptional = authorRepository.findById(bookDetails.getAuthor().getAuthor_id());
+                if (authorOptional.isPresent()) {
+                    book.setAuthor(authorOptional.get());
+                } else {
+                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
                 }
-
-                Long authorId = (Long) payload.get("author_id");
-                if (authorId != null) {
-                    Optional<Author> authorOptional = authorRepository.findById(authorId);
-                    if (authorOptional.isPresent()) {
-                        Author author = authorOptional.get();
-                        book.setAuthor(author);
-                    } else {
-                        return ResponseEntity.status(404).body(null);
-                    }
-                }
-
-                Book updatedBook = bookRepository.save(book);
-
-                BookDTO bookDTO = new BookDTO();
-                bookDTO.setId(updatedBook.getId());
-                bookDTO.setName(updatedBook.getName());
-                bookDTO.setAuthor(new BookDTO.AuthorDTO(
-                    updatedBook.getAuthor().getAuthor_id(),
-                    updatedBook.getAuthor().getFirstName(),
-                    updatedBook.getAuthor().getLastName()
-                ));
-
-                return ResponseEntity.ok(bookDTO);
-            } else {
-                return ResponseEntity.status(404).body(null); 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(500).build();
+
+            bookRepository.save(book);
+            return ResponseEntity.ok(book);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
+
+
+
 
 
     @DeleteMapping("/deleteBook/{id}")

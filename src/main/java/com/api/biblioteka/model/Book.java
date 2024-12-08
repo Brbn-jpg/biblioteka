@@ -47,7 +47,7 @@ public void setAuthor(Author author) {
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "author_id", nullable = true)
-  @JsonIgnore
+
   private Author author;
 
   public Book() {

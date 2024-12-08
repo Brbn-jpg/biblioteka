@@ -84,6 +84,7 @@ public class AuthorController {
 
                 Author author = authorOptional.get();
                 if (updatedAuthor.getFirstName() != null && !updatedAuthor.getFirstName().isEmpty()) {
+                    // author.setFirstName("abc");
                     author.setFirstName(updatedAuthor.getFirstName());
                 }
                 if (updatedAuthor.getLastName() != null && !updatedAuthor.getLastName().isEmpty()) {

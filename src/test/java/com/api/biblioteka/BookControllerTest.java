@@ -51,18 +51,21 @@ public class BookControllerTest {
 
     @Test
     public void testUpdateBook() throws Exception {
-        String updatedBookJson = "{\"name\":\"nowa ksiazka\",\"author_id\":\"2\"}";
-
+        String updatedBookJson = "{\"name\":\"nowa ksiazka\",\"author\":{\"author_id\":2}}";
+    
         mockMvc.perform(put("/books/updateBook/2")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(updatedBookJson))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value("2"))
+                .andExpect(jsonPath("$.id").value(2))
                 .andExpect(jsonPath("$.name").value("nowa ksiazka"))
-                .andExpect(jsonPath("$.author.first_name").value("Anna"))
-                .andExpect(jsonPath("$.author.last_name").value("Nowak"))
-                .andExpect(jsonPath("$.author.author_id").value(2));
+                .andExpect(jsonPath("$.author.author_id").value(2))
+                .andExpect(jsonPath("$.author.firstName").value("Anna"))
+                .andExpect(jsonPath("$.author.lastName").value("Nowak"));
     }
+    
+
+
 
 
     @Test
