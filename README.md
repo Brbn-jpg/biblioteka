@@ -1,103 +1,106 @@
-# 📖 System biblioteczny
+<div align="center>
+  
+# 📖 Library System
+  
+  </div>
+  
+A library management system using REST API architecture, allowing easy management of a library.
 
-System do zarządzania biblioteką za pomocą architektury REST API, umożliwia proste zarządzanie biblioteką
+## 🗿 Requirements
 
-## 🗿 Wymagania
-
-- Java 11
+- Java 11  
 - PostgreSQL
 
-## 🛠️ Funkcje
+## 🛠️ Features
 
-### Zarządzanie książkami
+### Book Management
 
-- Pełen wgląd do bazy książek
-- Pełen wgląd do bazy książek oraz ich szczegółów
-- Dodawanie książek do bazy danych
-- Aktualizowanie danych książek
-- Usuwanie książek z bazy danych
+- Full access to the book database  
+- Full access to the book database with detailed information  
+- Adding books to the database  
+- Updating book information  
+- Deleting books from the database  
 
-### Zarządzanie autorami
+### Author Management
 
-- Pełen wgląd do bazy autorów
-- Pełen wgląd do bazy autorów oraz ich książek
-- Dodawanie autorów do bazy danych
-- Aktualizowanie danych autorów
-- Usuwanie autorów z bazy danych
+- Full access to the author database  
+- Full access to the author database with their books  
+- Adding authors to the database  
+- Updating author information  
+- Deleting authors from the database  
 
-## Endpointy
+## 📡 Endpoints
 
-### Książki
+### 📚 Books
 
-| Metoda | Endpoint              | Opis                              |
-| ------ | --------------------- | --------------------------------- |
-| GET    | /books                | Pokazuje wszystkie książki        |
-| GET    | /books/{id}           | Pokazuje daną książkę             |
-| GET    | /books/{id}/details   | Pokazuje daną książkę oraz autora |
-| POST   | /books/addBook        | Dodaje książkę                    |
-| PUT    | books/updateBook/{id} | Aktualizuje dane książki          |
-| DELETE | books/deleteBook/{id} | Usuwa daną książkę                |
+| Method | Endpoint                | Description                           |
+|--------|-------------------------|---------------------------------------|
+| GET    | `/books`                | Shows all books                       |
+| GET    | `/books/{id}`           | Shows a specific book                 |
+| GET    | `/books/{id}/details`   | Shows a specific book with its author |
+| POST   | `/books/addBook`        | Adds a book                           |
+| PUT    | `/books/updateBook/{id}`| Updates book information              |
+| DELETE | `/books/deleteBook/{id}`| Deletes a specific book               |
 
-### Autorzy
+### 🖋️ Authors
 
-| Metoda | Endpoint                 | Opis                                     |
-| ------ | ------------------------ | ---------------------------------------- |
-| GET    | /author                  | Pokazuje wszystkich autorów              |
-| GET    | /author/{id}             | Pokazuje danego autora                   |
-| GET    | /author/{id}/details     | Pokazuje danego autora oraz jego książki |
-| POST   | /author/addAuthor        | Dodaje autora                            |
-| PUT    | author/updateAuthor/{id} | Aktualizuje dane autora                  |
-| DELETE | author/deleteAuthor/{id} | Usuwa danego autora                      |
+| Method | Endpoint                    | Description                                  |
+|--------|-----------------------------|----------------------------------------------|
+| GET    | `/author`                   | Shows all authors                            |
+| GET    | `/author/{id}`              | Shows a specific author                      |
+| GET    | `/author/{id}/details`      | Shows a specific author with their books     |
+| POST   | `/author/addAuthor`         | Adds an author                               |
+| PUT    | `/author/updateAuthor/{id}` | Updates author information                   |
+| DELETE | `/author/deleteAuthor/{id}` | Deletes a specific author                    |
 
-## Użyte technologie
+## 🧪 Technologies Used
 
-- Backend: Spring Boot
-- Baza danych: PostgreSQL
-- Testy:
-  - JUnit
-  - Postman
-  - Cypress
+- **Backend:** Spring Boot  
+- **Database:** PostgreSQL  
+- **Testing:**
+  - JUnit  
+  - Postman  
+  - Cypress  
 
+## ✅ Running Tests
 
-## Uruchomienie testów
+### JUnit Tests
 
-### Testy JUnit
-
-Aby uruchomić testy JUnit, należy wprowadzić w terminalu polecenie:
+To run JUnit tests, enter the following command in the terminal:
 
 ```bash
 mvn test
 ```
 
-### Testy postmanowe
+### Postman Tests
 
-Aby uruchomić testy Postmanowe, należy przejść do workspace'a pod tym [linkiem](https://www.postman.com/kk0000-9147/biblioteka-workspace/collection/9ruf0ph/biblioteka?action=share&creator=39909708)
+To run Postman tests, visit the workspace via this [link](https://www.postman.com/kk0000-9147/biblioteka-workspace/collection/9ruf0ph/biblioteka?action=share&creator=39909708)
 
-### Testy Cypress
+### Cypress Tests
 
-Aby uruchomić testy Cypress, należy wprowadzić w terminalu polecenie:
+To run Cypress tests, enter in the terminal:
 
 ```bash
 npx cypress open
 ```
 
-lub w trybie headless:
+Or in headless mode:
 
 ```bash
 npx cypress run
 ```
 
-## Przykładowe dane SQL
+## 🗃️ Example SQL Data
 
-```bash
+```sql
 INSERT INTO author (first_name, last_name) VALUES ('Jan', 'Kowalski');
 INSERT INTO author (first_name, last_name) VALUES ('Anna', 'Nowak');
 INSERT INTO author (first_name, last_name) VALUES ('Piotr', 'Zieliński');
 INSERT INTO author (first_name, last_name) VALUES ('Zbigniew', 'Baka');
 
-INSERT INTO book (name, author_id) VALUES ('Książka A', 1);
-INSERT INTO book (name, author_id) VALUES ('Książka B', 2);
-INSERT INTO book (name, author_id) VALUES ('Książka C', 3);
-INSERT INTO book (name, author_id) VALUES ('Książka D', 1);
-INSERT INTO book (name, author_id) VALUES ('Książka E', 4);
+INSERT INTO book (name, author_id) VALUES ('Book A', 1);
+INSERT INTO book (name, author_id) VALUES ('Book B', 2);
+INSERT INTO book (name, author_id) VALUES ('Book C', 3);
+INSERT INTO book (name, author_id) VALUES ('Book D', 1);
+INSERT INTO book (name, author_id) VALUES ('Book E', 4);
 ```
