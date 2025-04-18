@@ -1,7 +1,6 @@
-<div align="center>
-  📖 Library System
-</div>
-  
+
+# <div align="center">📖 Library System</div>
+
 A library management system using REST API architecture, allowing easy management of a library.
 
 ## 🗿 Requirements
