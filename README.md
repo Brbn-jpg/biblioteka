@@ -2,6 +2,11 @@
 
 System do zarządzania biblioteką za pomocą architektury REST API, umożliwia proste zarządzanie biblioteką
 
+## 🗿 Wymagania
+
+- Java 11
+- PostgreSQL
+
 ## 🛠️ Funkcje
 
 ### Zarządzanie książkami
@@ -53,10 +58,6 @@ System do zarządzania biblioteką za pomocą architektury REST API, umożliwia 
   - Postman
   - Cypress
 
-## 🗿 Wymagania
-
-- Java 11
-- PostgreSQL
 
 ## Uruchomienie testów
 
