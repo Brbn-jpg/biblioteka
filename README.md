@@ -1,71 +1,93 @@
-
 # 📖 System biblioteczny
 
 System do zarządzania biblioteką za pomocą architektury REST API, umożliwia proste zarządzanie biblioteką
 
-
-
-
 ## 🛠️ Funkcje
 
 ### Zarządzanie książkami
-* Pełen wgląd do bazy książek
-* Pełen wgląd do bazy książek oraz ich szczegółów
-* Dodawanie książek do bazy danych
-* Aktualizowanie danych książek
-* Usuwanie książek z bazy danych
+
+- Pełen wgląd do bazy książek
+- Pełen wgląd do bazy książek oraz ich szczegółów
+- Dodawanie książek do bazy danych
+- Aktualizowanie danych książek
+- Usuwanie książek z bazy danych
 
 ### Zarządzanie autorami
-* Pełen wgląd do bazy autorów
-* Pełen wgląd do bazy autorów oraz ich książek
-* Dodawanie autorów do bazy danych
-* Aktualizowanie danych autorów
-* Usuwanie autorów z bazy danych
-##  Endpointy
 
+- Pełen wgląd do bazy autorów
+- Pełen wgląd do bazy autorów oraz ich książek
+- Dodawanie autorów do bazy danych
+- Aktualizowanie danych autorów
+- Usuwanie autorów z bazy danych
+
+## Endpointy
 
 ### Książki
-| Metoda  | Endpoint | Opis |
-| ------------- | ------------- | ------------- |
-| GET | /books  |   Pokazuje wszystkie książki |
-| GET | /books/{id}  |  Pokazuje daną książkę |
-| GET | /books/{id}/details | Pokazuje daną książkę oraz autora |
-| POST | /books/addBook | Dodaje książkę |
-| PUT | books/updateBook/{id} | Aktualizuje dane książki |
-| DELETE | books/deleteBook/{id} | Usuwa daną książkę |
+
+| Metoda | Endpoint              | Opis                              |
+| ------ | --------------------- | --------------------------------- |
+| GET    | /books                | Pokazuje wszystkie książki        |
+| GET    | /books/{id}           | Pokazuje daną książkę             |
+| GET    | /books/{id}/details   | Pokazuje daną książkę oraz autora |
+| POST   | /books/addBook        | Dodaje książkę                    |
+| PUT    | books/updateBook/{id} | Aktualizuje dane książki          |
+| DELETE | books/deleteBook/{id} | Usuwa daną książkę                |
 
 ### Autorzy
-| Metoda  | Endpoint | Opis |
-| ------------- | ------------- | ------------- |
-| GET | /author  |   Pokazuje wszystkich autorów |
-| GET | /author/{id}  |  Pokazuje danego autora |
-| GET | /author/{id}/details | Pokazuje danego autora oraz jego książki |
-| POST | /author/addAuthor | Dodaje autora |
-| PUT | author/updateAuthor/{id} | Aktualizuje dane autora |
-| DELETE | author/deleteAuthor/{id} | Usuwa danego autora |
 
+| Metoda | Endpoint                 | Opis                                     |
+| ------ | ------------------------ | ---------------------------------------- |
+| GET    | /author                  | Pokazuje wszystkich autorów              |
+| GET    | /author/{id}             | Pokazuje danego autora                   |
+| GET    | /author/{id}/details     | Pokazuje danego autora oraz jego książki |
+| POST   | /author/addAuthor        | Dodaje autora                            |
+| PUT    | author/updateAuthor/{id} | Aktualizuje dane autora                  |
+| DELETE | author/deleteAuthor/{id} | Usuwa danego autora                      |
 
 ## Użyte technologie
 
-* Backend: Spring boot
-* Baza danych: PostgreSQL
-* Testy: 
-    * JUnit
-    * Postman
+- Backend: Spring Boot
+- Baza danych: PostgreSQL
+- Testy:
+  - JUnit
+  - Postman
+  - Cypress
 
 ## 🗿 Wymagania
-* Java 11
-* PostgreSQL
+
+- Java 11
+- PostgreSQL
 
 ## Uruchomienie testów
 
+### Testy JUnit
+
 Aby uruchomić testy JUnit, należy wprowadzić w terminalu polecenie:
+
 ```bash
-    mvn test
+mvn test
 ```
 
+### Testy postmanowe
+
+Aby uruchomić testy Postmanowe, należy przejść do workspace'a pod tym [linkiem](https://www.postman.com/kk0000-9147/biblioteka-workspace/collection/9ruf0ph/biblioteka?action=share&creator=39909708)
+
+### Testy Cypress
+
+Aby uruchomić testy Cypress, należy wprowadzić w terminalu polecenie:
+
+```bash
+npx cypress open
+```
+
+lub w trybie headless:
+
+```bash
+npx cypress run
+```
 
 ## Przykładowe dane SQL
+
 ```bash
 INSERT INTO author (first_name, last_name) VALUES ('Jan', 'Kowalski');
 INSERT INTO author (first_name, last_name) VALUES ('Anna', 'Nowak');

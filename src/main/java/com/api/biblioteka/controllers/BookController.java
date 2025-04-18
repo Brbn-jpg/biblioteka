@@ -125,10 +125,6 @@ public class BookController {
         }
     }
 
-
-
-
-
     @DeleteMapping("/deleteBook/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         try {

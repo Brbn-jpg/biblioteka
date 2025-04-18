@@ -81,11 +81,11 @@ public class AuthorController {
                 if (authorOptional.isEmpty()) {
                     return ResponseEntity.status(404).body("Author not found");
                 }
-
+                
                 Author author = authorOptional.get();
                 if (updatedAuthor.getFirstName() != null && !updatedAuthor.getFirstName().isEmpty()) {
-                    author.setFirstName("abc");
-                    // author.setFirstName(updatedAuthor.getFirstName());
+                    // author.setFirstName("abc");
+                    author.setFirstName(updatedAuthor.getFirstName());
                 }
                 if (updatedAuthor.getLastName() != null && !updatedAuthor.getLastName().isEmpty()) {
                     author.setLastName(updatedAuthor.getLastName());

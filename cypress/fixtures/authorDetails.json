@@ -1,0 +1,16 @@
+[
+  {
+    "authorId": 1,
+    "firstName": "Adam",
+    "lastName": "Mickiewicz",
+    "title": "Pan Tadeusz",
+    "bookId": 1
+  },
+  {
+    "authorId": 1,
+    "firstName": "Adam",
+    "lastName": "Mickiewicz",
+    "title": "Dziady",
+    "bookId": 4
+  }
+]

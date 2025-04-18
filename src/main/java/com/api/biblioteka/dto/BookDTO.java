@@ -39,6 +39,10 @@ public class BookDTO {
         this.lastName = lastName2;
         this.id = id;
     }
+    
+    public long getId() {
+      return id;
+    }
 
     @JsonProperty("first_name")
     private String firstName;

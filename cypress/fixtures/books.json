@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Pan Tadeusz",
+    "authorId": 1
+  },
+  {
+    "id": 2,
+    "title": "Lalka",
+    "authorId": 2
+  },
+  {
+    "id": 3,
+    "title": "Quo Vadis",
+    "authorId": 3
+  }
+]

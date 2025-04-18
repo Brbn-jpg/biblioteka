@@ -1,4 +1,4 @@
--- Insert Authors without specifying id (it will be generated automatically)
+-- Insert Authors
 INSERT INTO author (first_name, last_name) VALUES ('Jan', 'Kowalski');
 INSERT INTO author (first_name, last_name) VALUES ('Anna', 'Nowak');
 INSERT INTO author (first_name, last_name) VALUES ('Piotr', 'Zieliński');
