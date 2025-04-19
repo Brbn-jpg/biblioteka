@@ -42,8 +42,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/biblioteka.git
-cd biblioteka
+git clone https://github.com/Brbn-jpg/library-management-api.git
 ```
 
 2. Configure the database connection in `application.properties`.
