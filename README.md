@@ -7,6 +7,7 @@
 
 - Java 11  
 - PostgreSQL
+- Maven
 
 ## 🛠️ Features
 
@@ -25,6 +26,20 @@
 - Adding authors to the database  
 - Updating author information  
 - Deleting authors from the database  
+
+# 🚀 Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/biblioteka.git
+cd biblioteka
+```
+2. Configure the database connection in application.properties.
+3. Build and run the application:
+```bash
+mvn spring-boot:run
+```
+4. Access the API at `http://localhost:8080` and frontend at `http://localhost:8080/landingPage.html`
 
 ## 📡 Endpoints
 
@@ -55,9 +70,10 @@
 - **Backend:** Spring Boot  
 - **Database:** PostgreSQL  
 - **Testing:**
-  - JUnit  
-  - Postman  
-  - Cypress  
+  - JUnit: Unit testing  
+  - Postman: API testing 
+  - Cypress: Frontend testing
+  - K6: API Performance testing
 
 ## ✅ Running Tests
 
@@ -85,6 +101,13 @@ Or in headless mode:
 
 ```bash
 npx cypress run
+```
+
+### K6 Tests
+
+To run K6 performance tests, enter in the terminal:
+```bash
+k6 run performance-test.js --out json=results.json
 ```
 
 ## 🗃️ Example SQL Data
