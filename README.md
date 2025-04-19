@@ -5,9 +5,17 @@
 
 ## 🗿 Requirements
 
+### Basic
 - Java 11  
 - PostgreSQL
 - Maven
+- Node.js
+### Testing
+- Junit 5
+- Mockito
+- K6
+- Cypress
+- Postman
 
 ## 🛠️ Features
 
