@@ -44,6 +44,14 @@ public class BookDTO {
       return id;
     }
 
+    public String getFirstName() {
+      return firstName;
+    }
+    
+    public String getLastName() {
+        return lastName;
+    }
+
     @JsonProperty("first_name")
     private String firstName;
     @JsonProperty("last_name")

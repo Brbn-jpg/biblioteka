@@ -1,16 +1,11 @@
-[
-  {
-    "authorId": 1,
-    "firstName": "Adam",
-    "lastName": "Mickiewicz",
-    "title": "Pan Tadeusz",
-    "bookId": 1
-  },
-  {
-    "authorId": 1,
-    "firstName": "Adam",
-    "lastName": "Mickiewicz",
-    "title": "Dziady",
-    "bookId": 4
-  }
-]
+{
+  "id": 1,
+  "firstName": "Jan",
+  "lastName": "Kowalski",
+  "books": [
+    {
+      "id": 1,
+      "name": "Przykładowa książka 1"
+    }
+  ]
+}

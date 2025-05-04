@@ -1,0 +1,668 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 22,
+    "passes": 1,
+    "pending": 0,
+    "failures": 21,
+    "start": "2025-05-04T10:49:48.396Z",
+    "end": "2025-05-04T10:49:52.420Z",
+    "duration": 4024,
+    "testsRegistered": 22,
+    "passPercent": 4.545454545454546,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "680247fd-82d5-489a-ab64-b50e81809ad3",
+      "title": "",
+      "fullFile": "cypress/e2e/api_tests.cy.js",
+      "file": "cypress/e2e/api_tests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "66c76e2e-a398-4f98-9711-3c3ee1544333",
+          "title": "API Tests - Library Management System",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+              "title": "Book API Endpoints",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should get all books",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should get all books",
+                  "timedOut": null,
+                  "duration": 298,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\");\n  expect(response.body.length).to.be.greaterThan(0);\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:48 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:48.517+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:48 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:48.517+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:13:9)",
+                    "diff": null
+                  },
+                  "uuid": "62db9d64-9342-4fdc-b0f7-89b4913a1aad",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should get a book by ID",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should get a book by ID",
+                  "timedOut": null,
+                  "duration": 162,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get all books to find a valid ID\ncy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  const bookId = response.body[0].id;\n  // Then get specific book by ID\n  cy.request(\"GET\", `http://localhost:8080/books/${bookId}`).then(bookResponse => {\n    expect(bookResponse.status).to.eq(200);\n    expect(bookResponse.body).to.not.be.null;\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:48 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:48.750+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:48 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:48.750+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:22:9)",
+                    "diff": null
+                  },
+                  "uuid": "4a8b9ec5-5b69-4257-baa8-e9cc454c9f2d",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return 404 when book ID does not exist",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should return 404 when book ID does not exist",
+                  "timedOut": null,
+                  "duration": 171,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: \"GET\",\n  url: \"http://localhost:8080/books/99999\",\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 500 to equal 404",
+                    "estack": "AssertionError: expected 500 to equal 404\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:41:35)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)",
+                    "diff": "- 500\n+ 404\n"
+                  },
+                  "uuid": "5b309575-9c58-4b64-b3ca-23c762b66101",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should get detailed book information",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should get detailed book information",
+                  "timedOut": null,
+                  "duration": 161,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get all books to find a valid ID\ncy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  const bookId = response.body[0].id;\n  // Then get detailed book information\n  cy.request(\"GET\", `http://localhost:8080/books/${bookId}/details`).then(detailsResponse => {\n    expect(detailsResponse.status).to.eq(200);\n    expect(detailsResponse.body).to.have.property(\"name\");\n    expect(detailsResponse.body).to.have.property(\"author\");\n    // Dostosowanie do faktycznej struktury odpowiedzi\n    expect(detailsResponse.body.author).to.have.property(\"author_id\");\n    expect(detailsResponse.body.author).to.have.property(\"first_name\");\n    expect(detailsResponse.body.author).to.have.property(\"last_name\");\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.116+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.116+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:47:9)",
+                    "diff": null
+                  },
+                  "uuid": "d56edb77-f77a-4152-aa09-bfe6fbb17c3c",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should add a new book",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should add a new book",
+                  "timedOut": null,
+                  "duration": 161,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get authors to find a valid author ID\ncy.request(\"GET\", \"http://localhost:8080/author\").then(authorsResponse => {\n  const authorId = authorsResponse.body[0].author_id;\n  const newBook = {\n    name: \"Test Book via API\",\n    author_id: authorId.toString()\n  };\n  cy.request(\"POST\", \"http://localhost:8080/books/addBook\", newBook).then(addResponse => {\n    expect(addResponse.status).to.eq(200);\n    expect(addResponse.body).to.have.property(\"name\", \"Test Book via API\");\n    expect(addResponse.body).to.have.property(\"author\");\n    // Dostosowanie do faktycznej struktury odpowiedzi\n    expect(addResponse.body.author).to.have.property(\"author_id\", authorId);\n    expect(addResponse.body.author).to.have.property(\"first_name\");\n    expect(addResponse.body.author).to.have.property(\"last_name\");\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.290+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.290+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:67:9)",
+                    "diff": null
+                  },
+                  "uuid": "0c9ac0bb-ebf9-4d28-99c2-faa2c7a2a4fa",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should update an existing book",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should update an existing book",
+                  "timedOut": null,
+                  "duration": 218,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get all books to find a valid ID\ncy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  var _response$body$0$auth;\n  const bookId = response.body[0].id;\n  const authorId = ((_response$body$0$auth = response.body[0].author) === null || _response$body$0$auth === void 0 ? void 0 : _response$body$0$auth.author_id) || 1;\n  const updatedBook = {\n    name: \"Updated Book Title via API\",\n    author: {\n      author_id: authorId\n    }\n  };\n  cy.request(\"PUT\", `http://localhost:8080/books/updateBook/${bookId}`, updatedBook).then(updateResponse => {\n    expect(updateResponse.status).to.eq(200);\n    expect(updateResponse.body).to.have.property(\"id\", bookId);\n    expect(updateResponse.body).to.have.property(\"name\", \"Updated Book Title via API\");\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.525+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.525+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:101:9)",
+                    "diff": null
+                  },
+                  "uuid": "62361d05-1871-42bb-8d3e-ae927d05a19b",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should delete a book",
+                  "fullTitle": "API Tests - Library Management System Book API Endpoints should delete a book",
+                  "timedOut": null,
+                  "duration": 165,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First create a book to delete\ncy.request(\"GET\", \"http://localhost:8080/author\").then(authorsResponse => {\n  const authorId = authorsResponse.body[0].author_id;\n  const newBook = {\n    name: \"Book to Delete\",\n    author_id: authorId.toString()\n  };\n  cy.request(\"POST\", \"http://localhost:8080/books/addBook\", newBook).then(addResponse => {\n    const bookToDeleteId = addResponse.body.id;\n    // Then delete the book\n    cy.request(\"DELETE\", `http://localhost:8080/books/deleteBook/${bookToDeleteId}`).then(deleteResponse => {\n      expect(deleteResponse.status).to.eq(204);\n      // Verify book was deleted\n      cy.request({\n        method: \"GET\",\n        url: `http://localhost:8080/books/${bookToDeleteId}`,\n        failOnStatusCode: false\n      }).then(verifyResponse => {\n        expect(verifyResponse.status).to.eq(404);\n      });\n    });\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.700+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.700+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:129:9)",
+                    "diff": null
+                  },
+                  "uuid": "0b1a9247-7ef4-43a0-bdf0-d0e1d95c6c47",
+                  "parentUUID": "7173181b-415b-4f3b-8e77-ad27a6fa1b22",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "62db9d64-9342-4fdc-b0f7-89b4913a1aad",
+                "4a8b9ec5-5b69-4257-baa8-e9cc454c9f2d",
+                "5b309575-9c58-4b64-b3ca-23c762b66101",
+                "d56edb77-f77a-4152-aa09-bfe6fbb17c3c",
+                "0c9ac0bb-ebf9-4d28-99c2-faa2c7a2a4fa",
+                "62361d05-1871-42bb-8d3e-ae927d05a19b",
+                "0b1a9247-7ef4-43a0-bdf0-d0e1d95c6c47"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1336,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+              "title": "Author API Endpoints",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should get all authors",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should get all authors",
+                  "timedOut": null,
+                  "duration": 167,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request(\"GET\", \"http://localhost:8080/author\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\");\n  expect(response.body.length).to.be.greaterThan(0);\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.885+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:49 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:49.885+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:169:9)",
+                    "diff": null
+                  },
+                  "uuid": "0e92f8e5-6631-4329-809c-ac0e2ae5564a",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should get an author by ID",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should get an author by ID",
+                  "timedOut": null,
+                  "duration": 160,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get all authors to find a valid ID\ncy.request(\"GET\", \"http://localhost:8080/author\").then(response => {\n  const authorId = response.body[0].author_id;\n  // Then get specific author by ID\n  cy.request(\"GET\", `http://localhost:8080/author/${authorId}`).then(authorResponse => {\n    expect(authorResponse.status).to.eq(200);\n    expect(authorResponse.body).to.not.be.null;\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:50.061+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:50.061+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:178:9)",
+                    "diff": null
+                  },
+                  "uuid": "12e35c8b-85ce-4451-8b61-f6d49c75bf5d",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should return 404 when author ID does not exist",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should return 404 when author ID does not exist",
+                  "timedOut": null,
+                  "duration": 167,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: \"GET\",\n  url: \"http://localhost:8080/author/99999\",\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 500 to equal 404",
+                    "estack": "AssertionError: expected 500 to equal 404\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:197:35)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)",
+                    "diff": "- 500\n+ 404\n"
+                  },
+                  "uuid": "59868998-edcb-4cb1-b859-a256d9726d17",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should get detailed author information",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should get detailed author information",
+                  "timedOut": null,
+                  "duration": 173,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get all authors to find a valid ID\ncy.request(\"GET\", \"http://localhost:8080/author\").then(response => {\n  const authorId = response.body[0].author_id;\n  // Then get detailed author information\n  cy.request(\"GET\", `http://localhost:8080/author/${authorId}/details`).then(detailsResponse => {\n    expect(detailsResponse.status).to.eq(200);\n    expect(detailsResponse.body).to.have.property(\"id\");\n    expect(detailsResponse.body).to.have.property(\"firstName\");\n    expect(detailsResponse.body).to.have.property(\"lastName\");\n    expect(detailsResponse.body).to.have.property(\"books\");\n    expect(detailsResponse.body.books).to.be.an(\"array\");\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:50.414+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:50.414+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:203:9)",
+                    "diff": null
+                  },
+                  "uuid": "34133b76-11fe-43d2-aa43-569ffd5fdb5e",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should add a new author",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should add a new author",
+                  "timedOut": null,
+                  "duration": 171,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const newAuthor = {\n  firstName: \"Test\",\n  lastName: \"Author via API\"\n};\ncy.request(\"POST\", \"http://localhost:8080/author/addAuthor\", newAuthor).then(addResponse => {\n  expect(addResponse.status).to.eq(200);\n  expect(addResponse.body).to.have.property(\"author_id\");\n  expect(addResponse.body).to.have.property(\"firstName\", \"Test\");\n  expect(addResponse.body).to.have.property(\"lastName\", \"Author via API\");\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 48\n}\nBody: {\"firstName\":\"Test\",\"lastName\":\"Author via API\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 48\n}\nBody: {\"firstName\":\"Test\",\"lastName\":\"Author via API\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:227:9)",
+                    "diff": null
+                  },
+                  "uuid": "abe16772-0582-454c-a06e-d0797bbf817a",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should update an existing author",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should update an existing author",
+                  "timedOut": null,
+                  "duration": 163,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First get all authors to find a valid ID\ncy.request(\"GET\", \"http://localhost:8080/author\").then(response => {\n  const authorId = response.body[0].author_id;\n  const updatedAuthor = {\n    firstName: \"Updated\",\n    lastName: \"Author Name via API\"\n  };\n  cy.request(\"PUT\", `http://localhost:8080/author/updateAuthor/${authorId}`, updatedAuthor).then(updateResponse => {\n    expect(updateResponse.status).to.eq(200);\n    expect(updateResponse.body).to.have.property(\"author_id\", authorId);\n    expect(updateResponse.body).to.have.property(\"firstName\", \"Updated\");\n    expect(updateResponse.body).to.have.property(\"lastName\", \"Author Name via API\");\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:50.793+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:50.793+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:241:9)",
+                    "diff": null
+                  },
+                  "uuid": "2e1a3444-15fe-42e9-86a4-636a1360125f",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should delete an author",
+                  "fullTitle": "API Tests - Library Management System Author API Endpoints should delete an author",
+                  "timedOut": null,
+                  "duration": 173,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// First create an author to delete\nconst newAuthor = {\n  firstName: \"Author\",\n  lastName: \"To Delete\"\n};\ncy.request(\"POST\", \"http://localhost:8080/author/addAuthor\", newAuthor).then(addResponse => {\n  const authorToDeleteId = addResponse.body.author_id;\n  // Then delete the author\n  cy.request(\"DELETE\", `http://localhost:8080/author/deleteAuthor/${authorToDeleteId}`).then(deleteResponse => {\n    expect(deleteResponse.status).to.eq(204);\n    // Verify author was deleted\n    cy.request({\n      method: \"GET\",\n      url: `http://localhost:8080/author/${authorToDeleteId}`,\n      failOnStatusCode: false\n    }).then(verifyResponse => {\n      expect(verifyResponse.status).to.eq(404);\n    });\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 45\n}\nBody: {\"firstName\":\"Author\",\"lastName\":\"To Delete\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 45\n}\nBody: {\"firstName\":\"Author\",\"lastName\":\"To Delete\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Sun, 04 May 2025 10:49:50 GMT\",\n  \"connection\": \"close\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:272:9)",
+                    "diff": null
+                  },
+                  "uuid": "bac98a29-b131-4b1d-9ccd-02b4f5525347",
+                  "parentUUID": "21e19dc5-b727-413c-9c77-0c1f2619c078",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "0e92f8e5-6631-4329-809c-ac0e2ae5564a",
+                "12e35c8b-85ce-4451-8b61-f6d49c75bf5d",
+                "59868998-edcb-4cb1-b859-a256d9726d17",
+                "34133b76-11fe-43d2-aa43-569ffd5fdb5e",
+                "abe16772-0582-454c-a06e-d0797bbf817a",
+                "2e1a3444-15fe-42e9-86a4-636a1360125f",
+                "bac98a29-b131-4b1d-9ccd-02b4f5525347"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1174,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "27537500-d8c5-432a-a5d5-52d6c07c6eb8",
+              "title": "API Edge Cases and Error Handling",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle invalid book data",
+                  "fullTitle": "API Tests - Library Management System API Edge Cases and Error Handling should handle invalid book data",
+                  "timedOut": null,
+                  "duration": 30,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const invalidBook = {\n  // Missing required name field\n  author_id: \"1\"\n};\ncy.request({\n  method: \"POST\",\n  url: \"http://localhost:8080/books/addBook\",\n  failOnStatusCode: false,\n  body: invalidBook\n}).then(response => {\n  // Should return 400 or 500 depending on backend validation\n  expect(response.status).to.be.oneOf([400, 500]);\n});",
+                  "err": {},
+                  "uuid": "169c82b4-9870-43a3-b645-5d64e04f7368",
+                  "parentUUID": "27537500-d8c5-432a-a5d5-52d6c07c6eb8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle invalid author data",
+                  "fullTitle": "API Tests - Library Management System API Edge Cases and Error Handling should handle invalid author data",
+                  "timedOut": null,
+                  "duration": 163,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const invalidAuthor = {\n  // Both firstName and lastName fields empty\n  firstName: \"\",\n  lastName: \"\"\n};\ncy.request({\n  method: \"POST\",\n  url: \"http://localhost:8080/author/addAuthor\",\n  failOnStatusCode: false,\n  body: invalidAuthor\n}).then(response => {\n  // Wygląda na to, że backend akceptuje puste stringi, więc sprawdzamy czy status to 200\n  expect(response.status).to.eq(200);\n  // Możemy sprawdzić czy odpowiedź zawiera puste wartości\n  if (response.body) {\n    expect(response.body.firstName).to.eq(\"\");\n    expect(response.body.lastName).to.eq(\"\");\n  }\n});",
+                  "err": {
+                    "message": "AssertionError: expected 500 to equal 200",
+                    "estack": "AssertionError: expected 500 to equal 200\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:331:35)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)",
+                    "diff": "- 500\n+ 200\n"
+                  },
+                  "uuid": "169ff763-b919-44b6-bd82-7b922d263e51",
+                  "parentUUID": "27537500-d8c5-432a-a5d5-52d6c07c6eb8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle update with non-existent author ID",
+                  "fullTitle": "API Tests - Library Management System API Edge Cases and Error Handling should handle update with non-existent author ID",
+                  "timedOut": null,
+                  "duration": 165,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Get a book to update\ncy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  const bookId = response.body[0].id;\n  const updatedBook = {\n    name: \"Valid Name\",\n    author: {\n      author_id: 99999 // Non-existent author ID\n    }\n  };\n  cy.request({\n    method: \"PUT\",\n    url: `http://localhost:8080/books/updateBook/${bookId}`,\n    failOnStatusCode: false,\n    body: updatedBook\n  }).then(response => {\n    expect(response.status).to.eq(404);\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:51.371+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:51.371+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:342:9)",
+                    "diff": null
+                  },
+                  "uuid": "1b263a5d-2dd3-43ae-943d-3d9564c77079",
+                  "parentUUID": "27537500-d8c5-432a-a5d5-52d6c07c6eb8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle concurrent operations",
+                  "fullTitle": "API Tests - Library Management System API Edge Cases and Error Handling should handle concurrent operations",
+                  "timedOut": null,
+                  "duration": 156,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Cypress nie obsługuje dobrze równoległych zapytań, zmodyfikujmy test\n// aby wykonywać zapytania sekwencyjnie\n// Najpierw dodajmy nowego autora\ncy.request(\"POST\", \"http://localhost:8080/author/addAuthor\", {\n  firstName: \"Concurrent\",\n  lastName: \"Test Author\"\n}).then(authorResponse => {\n  expect(authorResponse.status).to.be.oneOf([200, 201]);\n  // Następnie pobierzmy wszystkie książki\n  cy.request(\"GET\", \"http://localhost:8080/books\").then(booksResponse => {\n    expect(booksResponse.status).to.eq(200);\n    // Na końcu pobierzmy wszystkich autorów\n    cy.request(\"GET\", \"http://localhost:8080/author\").then(authorsResponse => {\n      expect(authorsResponse.status).to.eq(200);\n    });\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 51\n}\nBody: {\"firstName\":\"Concurrent\",\"lastName\":\"Test Author\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 51\n}\nBody: {\"firstName\":\"Concurrent\",\"lastName\":\"Test Author\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:368:9)",
+                    "diff": null
+                  },
+                  "uuid": "9d53e1f1-3b75-46e0-aaa4-fa43791d328f",
+                  "parentUUID": "27537500-d8c5-432a-a5d5-52d6c07c6eb8",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "169c82b4-9870-43a3-b645-5d64e04f7368"
+              ],
+              "failures": [
+                "169ff763-b919-44b6-bd82-7b922d263e51",
+                "1b263a5d-2dd3-43ae-943d-3d9564c77079",
+                "9d53e1f1-3b75-46e0-aaa4-fa43791d328f"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 514,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "b5e7f32f-d2c5-492a-9db0-59b908c34220",
+              "title": "API Contract Testing",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify book response structure",
+                  "fullTitle": "API Tests - Library Management System API Contract Testing should verify book response structure",
+                  "timedOut": null,
+                  "duration": 173,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  expect(response.status).to.eq(200);\n  if (response.body.length > 0) {\n    const book = response.body[0];\n    expect(book).to.have.property(\"id\");\n    expect(book).to.have.property(\"name\");\n    expect(book).to.have.property(\"author\");\n    if (book.author) {\n      expect(book.author).to.have.property(\"author_id\");\n      expect(book.author).to.have.property(\"firstName\");\n      expect(book.author).to.have.property(\"lastName\");\n    }\n  }\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:51.719+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:51.719+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:393:9)",
+                    "diff": null
+                  },
+                  "uuid": "0f1cc9c9-8b1b-4740-b77c-0f0a8cab8478",
+                  "parentUUID": "b5e7f32f-d2c5-492a-9db0-59b908c34220",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify author response structure",
+                  "fullTitle": "API Tests - Library Management System API Contract Testing should verify author response structure",
+                  "timedOut": null,
+                  "duration": 157,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request(\"GET\", \"http://localhost:8080/author\").then(response => {\n  expect(response.status).to.eq(200);\n  if (response.body.length > 0) {\n    const author = response.body[0];\n    expect(author).to.have.property(\"author_id\");\n    expect(author).to.have.property(\"firstName\");\n    expect(author).to.have.property(\"lastName\");\n    // Usuwamy sprawdzenie property books, ponieważ wygląda na to, że w podstawowym endpoincie\n    // ta właściwość nie jest zwracana\n  }\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:51.897+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:51 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:51.897+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:412:9)",
+                    "diff": null
+                  },
+                  "uuid": "9fa2efc9-a8da-4976-9498-954b03f0ca39",
+                  "parentUUID": "b5e7f32f-d2c5-492a-9db0-59b908c34220",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify detailed book endpoint contract",
+                  "fullTitle": "API Tests - Library Management System API Contract Testing should verify detailed book endpoint contract",
+                  "timedOut": null,
+                  "duration": 162,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request(\"GET\", \"http://localhost:8080/books\").then(response => {\n  if (response.body.length > 0) {\n    const bookId = response.body[0].id;\n    cy.request(\"GET\", `http://localhost:8080/books/${bookId}/details`).then(detailsResponse => {\n      expect(detailsResponse.status).to.eq(200);\n      // Dostosowanie do faktycznej struktury odpowiedzi\n      expect(detailsResponse.body).to.have.property(\"name\");\n      expect(detailsResponse.body).to.have.property(\"author\");\n      expect(detailsResponse.body.author).to.have.property(\"author_id\");\n      expect(detailsResponse.body.author).to.have.property(\"first_name\");\n      expect(detailsResponse.body.author).to.have.property(\"last_name\");\n    });\n  }\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:52 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:52.068+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:52 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:52.068+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/books\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:427:9)",
+                    "diff": null
+                  },
+                  "uuid": "d3b1f763-9142-4209-a6c9-d6bafa694c71",
+                  "parentUUID": "b5e7f32f-d2c5-492a-9db0-59b908c34220",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify detailed author endpoint contract",
+                  "fullTitle": "API Tests - Library Management System API Contract Testing should verify detailed author endpoint contract",
+                  "timedOut": null,
+                  "duration": 181,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request(\"GET\", \"http://localhost:8080/author\").then(response => {\n  if (response.body.length > 0) {\n    const authorId = response.body[0].author_id;\n    cy.request(\"GET\", `http://localhost:8080/author/${authorId}/details`).then(detailsResponse => {\n      expect(detailsResponse.status).to.eq(200);\n      expect(detailsResponse.body).to.have.all.keys([\"id\", \"firstName\", \"lastName\", \"books\"]);\n      expect(detailsResponse.body.books).to.be.an(\"array\");\n      if (detailsResponse.body.books.length > 0) {\n        const book = detailsResponse.body.books[0];\n        expect(book).to.have.property(\"id\");\n        expect(book).to.have.property(\"name\");\n      }\n    });\n  }\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:52 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:52.248+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Sun, 04 May 2025 10:49:52 GMT\",\n  \"connection\": \"close\"\n}\nBody: {\n  \"timestamp\": \"2025-05-04T10:49:52.248+00:00\",\n  \"status\": 500,\n  \"error\": \"Internal Server Error\",\n  \"path\": \"/author\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:448:9)",
+                    "diff": null
+                  },
+                  "uuid": "d5b35ba6-e257-49dd-a1a2-f1847e8c5037",
+                  "parentUUID": "b5e7f32f-d2c5-492a-9db0-59b908c34220",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "0f1cc9c9-8b1b-4740-b77c-0f0a8cab8478",
+                "9fa2efc9-a8da-4976-9498-954b03f0ca39",
+                "d3b1f763-9142-4209-a6c9-d6bafa694c71",
+                "d5b35ba6-e257-49dd-a1a2-f1847e8c5037"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 673,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

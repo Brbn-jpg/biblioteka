@@ -1,0 +1,309 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 10,
+    "passes": 2,
+    "pending": 0,
+    "failures": 8,
+    "start": "2025-05-02T13:12:16.386Z",
+    "end": "2025-05-02T13:12:17.826Z",
+    "duration": 1440,
+    "testsRegistered": 10,
+    "passPercent": 20,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9f3f0005-1d72-470d-b443-1373839cf6d5",
+      "title": "",
+      "fullFile": "cypress/e2e/api_tests.cy.js",
+      "file": "cypress/e2e/api_tests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a00a7df7-174a-41fe-a900-0bb760b53450",
+          "title": "API Contract Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify book API contract",
+              "fullTitle": "API Contract Tests should verify book API contract",
+              "timedOut": null,
+              "duration": 266,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Testowanie głównego endpointu books\ncy.request(\"/books\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\");\n  if (response.body.length > 0) {\n    const book = response.body[0];\n    // Sprawdzanie struktury danych książki\n    expect(book).to.have.property(\"id\");\n    expect(book).to.have.property(\"name\");\n    expect(book).to.have.property(\"author\");\n    // Sprawdzanie czy ID jest liczbą\n    expect(book.id).to.be.a(\"number\");\n    // Sprawdzanie czy nazwa jest stringiem\n    expect(book.name).to.be.a(\"string\");\n  }\n});\n// Testowanie endpointu szczegółów książki\ncy.request(\"/books/1/details\").then(response => {\n  expect(response.status).to.eq(200);\n  const bookDetails = response.body;\n  // Sprawdzanie struktury szczegółów książki\n  expect(bookDetails).to.have.property(\"id\");\n  expect(bookDetails).to.have.property(\"name\");\n  expect(bookDetails).to.have.property(\"author\");\n  // Sprawdzanie struktury autora w szczegółach książki\n  expect(bookDetails.author).to.have.property(\"id\");\n  expect(bookDetails.author).to.have.property(\"firstName\");\n  expect(bookDetails.author).to.have.property(\"lastName\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books/1/details\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books/1/details\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Fri, 02 May 2025 13:12:16 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: \n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books/1/details\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books/1/details\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Fri, 02 May 2025 13:12:16 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: \n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:31:8)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)\n    at wrapped (http://localhost:8080/__cypress/runner/cypress_runner.js:140155:19)",
+                "diff": null
+              },
+              "uuid": "0f23ef15-4cba-4efc-a909-dbae2a2d8f49",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify author API contract",
+              "fullTitle": "API Contract Tests should verify author API contract",
+              "timedOut": null,
+              "duration": 156,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Testowanie głównego endpointu authors\ncy.request(\"/author\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\");\n  if (response.body.length > 0) {\n    const author = response.body[0];\n    // Sprawdzanie struktury danych autora\n    expect(author).to.have.property(\"author_id\");\n    expect(author).to.have.property(\"firstName\");\n    expect(author).to.have.property(\"lastName\");\n    expect(author).to.have.property(\"books\");\n    // Sprawdzanie czy ID jest liczbą\n    expect(author.author_id).to.be.a(\"number\");\n    // Sprawdzanie czy imię i nazwisko są stringami\n    expect(author.firstName).to.be.a(\"string\");\n    expect(author.lastName).to.be.a(\"string\");\n    // Sprawdzanie czy books jest tablicą\n    expect(author.books).to.be.an(\"array\");\n  }\n});\n// Testowanie endpointu szczegółów autora\ncy.request(\"/author/1/details\").then(response => {\n  expect(response.status).to.eq(200);\n  const authorDetails = response.body;\n  // Sprawdzanie struktury szczegółów autora\n  expect(authorDetails).to.have.property(\"id\");\n  expect(authorDetails).to.have.property(\"firstName\");\n  expect(authorDetails).to.have.property(\"lastName\");\n  expect(authorDetails).to.have.property(\"books\");\n  // Sprawdzanie czy books jest tablicą\n  expect(authorDetails.books).to.be.an(\"array\");\n  if (authorDetails.books.length > 0) {\n    const book = authorDetails.books[0];\n    // Sprawdzanie struktury książki w szczegółach autora\n    expect(book).to.have.property(\"id\");\n    expect(book).to.have.property(\"name\");\n  }\n});",
+              "err": {
+                "message": "AssertionError: expected { Object (author_id, firstName, ...) } to have property 'books'",
+                "estack": "AssertionError: expected { Object (author_id, firstName, ...) } to have property 'books'\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:64:31)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)",
+                "diff": null
+              },
+              "uuid": "47eaa523-12ca-4a1c-8110-42d6c36669a4",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test book addition API contract",
+              "fullTitle": "API Contract Tests should test book addition API contract",
+              "timedOut": null,
+              "duration": 148,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const newBook = {\n  name: \"Nowa książka testowa\",\n  author_id: \"1\"\n};\ncy.request({\n  method: \"POST\",\n  url: \"api/books/addBook\",\n  body: newBook\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // Sprawdzanie struktury odpowiedzi po dodaniu książki\n  expect(response.body).to.have.property(\"id\");\n  expect(response.body).to.have.property(\"name\");\n  expect(response.body).to.have.property(\"author\");\n  expect(response.body.name).to.eq(newBook.name);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/books/addBook\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/api/books/addBook\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 49\n}\nBody: {\"name\":\"Nowa książka testowa\",\"author_id\":\"1\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:16 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:16.874+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/books/addBook\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/books/addBook\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/api/books/addBook\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 49\n}\nBody: {\"name\":\"Nowa książka testowa\",\"author_id\":\"1\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:16 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:16.874+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/books/addBook\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:105:7)",
+                "diff": null
+              },
+              "uuid": "facf1f8a-1bb4-4dcc-92e2-736518483b5a",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test author addition API contract",
+              "fullTitle": "API Contract Tests should test author addition API contract",
+              "timedOut": null,
+              "duration": 138,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const newAuthor = {\n  firstName: \"Nowy\",\n  lastName: \"Autor\"\n};\ncy.request({\n  method: \"POST\",\n  url: \"api/author/addAuthor\",\n  body: newAuthor\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // Sprawdzanie struktury odpowiedzi po dodaniu autora\n  expect(response.body).to.have.property(\"author_id\");\n  expect(response.body).to.have.property(\"firstName\");\n  expect(response.body).to.have.property(\"lastName\");\n  expect(response.body.firstName).to.eq(newAuthor.firstName);\n  expect(response.body.lastName).to.eq(newAuthor.lastName);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/api/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 39\n}\nBody: {\"firstName\":\"Nowy\",\"lastName\":\"Autor\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.031+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/author/addAuthor\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/author/addAuthor\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:8080/api/author/addAuthor\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 39\n}\nBody: {\"firstName\":\"Nowy\",\"lastName\":\"Autor\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.031+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/author/addAuthor\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:125:7)",
+                "diff": null
+              },
+              "uuid": "a4794938-9404-45b0-bbd1-406743d1fd04",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test book update API contract",
+              "fullTitle": "API Contract Tests should test book update API contract",
+              "timedOut": null,
+              "duration": 138,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const bookUpdate = {\n  name: \"Zaktualizowana książka\",\n  author: {\n    author_id: 1\n  }\n};\ncy.request({\n  method: \"PUT\",\n  url: \"api/books/updateBook/1\",\n  body: bookUpdate\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // Sprawdzanie struktury odpowiedzi po aktualizacji książki\n  expect(response.body).to.have.property(\"id\");\n  expect(response.body).to.have.property(\"name\");\n  expect(response.body).to.have.property(\"author\");\n  expect(response.body.name).to.eq(bookUpdate.name);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/books/updateBook/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: http://localhost:8080/api/books/updateBook/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 60\n}\nBody: {\"name\":\"Zaktualizowana książka\",\"author\":{\"author_id\":1}}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.180+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/books/updateBook/1\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/books/updateBook/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: http://localhost:8080/api/books/updateBook/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 60\n}\nBody: {\"name\":\"Zaktualizowana książka\",\"author\":{\"author_id\":1}}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.180+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/books/updateBook/1\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:148:7)",
+                "diff": null
+              },
+              "uuid": "536b7673-427f-4d90-9368-17a2a53d9f0d",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test author update API contract",
+              "fullTitle": "API Contract Tests should test author update API contract",
+              "timedOut": null,
+              "duration": 138,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const authorUpdate = {\n  firstName: \"Zaktualizowane\",\n  lastName: \"Nazwisko\"\n};\ncy.request({\n  method: \"PUT\",\n  url: \"api/author/updateAuthor/1\",\n  body: authorUpdate\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // Sprawdzanie struktury odpowiedzi po aktualizacji autora\n  expect(response.body).to.have.property(\"author_id\");\n  expect(response.body).to.have.property(\"firstName\");\n  expect(response.body).to.have.property(\"lastName\");\n  expect(response.body.firstName).to.eq(authorUpdate.firstName);\n  expect(response.body.lastName).to.eq(authorUpdate.lastName);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/author/updateAuthor/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: http://localhost:8080/api/author/updateAuthor/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 52\n}\nBody: {\"firstName\":\"Zaktualizowane\",\"lastName\":\"Nazwisko\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.331+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/author/updateAuthor/1\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/author/updateAuthor/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: http://localhost:8080/api/author/updateAuthor/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 52\n}\nBody: {\"firstName\":\"Zaktualizowane\",\"lastName\":\"Nazwisko\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.331+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/author/updateAuthor/1\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:168:7)",
+                "diff": null
+              },
+              "uuid": "8c064494-d9d1-44c7-8b82-6ea22c80c0dd",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test book deletion API contract",
+              "fullTitle": "API Contract Tests should test book deletion API contract",
+              "timedOut": null,
+              "duration": 145,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"DELETE\",\n  url: \"api/books/deleteBook/1\"\n}).then(response => {\n  expect(response.status).to.eq(204);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/books/deleteBook/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: http://localhost:8080/api/books/deleteBook/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.479+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/books/deleteBook/1\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/books/deleteBook/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: http://localhost:8080/api/books/deleteBook/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.479+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/books/deleteBook/1\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:184:7)",
+                "diff": null
+              },
+              "uuid": "c8f9a81d-ea20-4d52-89be-8c9315fc510d",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test author deletion API contract",
+              "fullTitle": "API Contract Tests should test author deletion API contract",
+              "timedOut": null,
+              "duration": 136,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"DELETE\",\n  url: \"api/author/deleteAuthor/1\"\n}).then(response => {\n  expect(response.status).to.eq(204);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/author/deleteAuthor/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: http://localhost:8080/api/author/deleteAuthor/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.637+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/author/deleteAuthor/1\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/api/author/deleteAuthor/1\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: http://localhost:8080/api/author/deleteAuthor/1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-length\": 0\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-type\": \"application/json\",\n  \"transfer-encoding\": \"chunked\",\n  \"date\": \"Fri, 02 May 2025 13:12:17 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: {\n  \"timestamp\": \"2025-05-02T13:12:17.637+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/api/author/deleteAuthor/1\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/api_tests.cy.js:193:7)",
+                "diff": null
+              },
+              "uuid": "1883f780-61f7-4840-887e-0003c2170b26",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test error handling for non-existent book",
+              "fullTitle": "API Contract Tests should test error handling for non-existent book",
+              "timedOut": null,
+              "duration": 22,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: \"/books/999\",\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+              "err": {},
+              "uuid": "1736637a-bfcf-45e8-b070-8391649acab0",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test error handling for non-existent author",
+              "fullTitle": "API Contract Tests should test error handling for non-existent author",
+              "timedOut": null,
+              "duration": 22,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: \"/author/999\",\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+              "err": {},
+              "uuid": "c5026b5d-28a7-4fbf-a5ac-bbe224e2737d",
+              "parentUUID": "a00a7df7-174a-41fe-a900-0bb760b53450",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1736637a-bfcf-45e8-b070-8391649acab0",
+            "c5026b5d-28a7-4fbf-a5ac-bbe224e2737d"
+          ],
+          "failures": [
+            "0f23ef15-4cba-4efc-a909-dbae2a2d8f49",
+            "47eaa523-12ca-4a1c-8110-42d6c36669a4",
+            "facf1f8a-1bb4-4dcc-92e2-736518483b5a",
+            "a4794938-9404-45b0-bbd1-406743d1fd04",
+            "536b7673-427f-4d90-9368-17a2a53d9f0d",
+            "8c064494-d9d1-44c7-8b82-6ea22c80c0dd",
+            "c8f9a81d-ea20-4d52-89be-8c9315fc510d",
+            "1883f780-61f7-4840-887e-0003c2170b26"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1309,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

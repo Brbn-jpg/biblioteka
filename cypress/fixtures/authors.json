@@ -1,17 +1,24 @@
 [
   {
-    "id": 1,
-    "firstName": "Adam",
-    "lastName": "Mickiewicz"
+    "author_id": 1,
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "books": [
+      {
+        "id": 1,
+        "name": "Przykładowa książka 1"
+      }
+    ]
   },
   {
-    "id": 2,
-    "firstName": "Bolesław",
-    "lastName": "Prus"
-  },
-  {
-    "id": 3,
-    "firstName": "Henryk",
-    "lastName": "Sienkiewicz"
+    "author_id": 2,
+    "firstName": "Anna",
+    "lastName": "Nowak",
+    "books": [
+      {
+        "id": 2,
+        "name": "Przykładowa książka 2"
+      }
+    ]
   }
 ]

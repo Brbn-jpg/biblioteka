@@ -1,0 +1,439 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 14,
+    "passes": 8,
+    "pending": 0,
+    "failures": 6,
+    "start": "2025-05-02T12:26:10.557Z",
+    "end": "2025-05-02T12:26:36.479Z",
+    "duration": 25922,
+    "testsRegistered": 14,
+    "passPercent": 57.14285714285714,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e3ef1651-4f9f-4f3c-9344-690924fe4ea7",
+      "title": "",
+      "fullFile": "cypress/e2e/library_tests.cy.js",
+      "file": "cypress/e2e/library_tests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4e0371a-f1bb-473e-8629-2f7e36db78fa",
+          "title": "Library Management System",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should load the landing page",
+              "fullTitle": "Library Management System should load the landing page",
+              "timedOut": null,
+              "duration": 449,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/landingPage.html\");\ncy.get(\"h1\").should(\"contain\", \"Strona startowa do Spring Boot REST Api\");\ncy.get(\"h2\").should(\"contain\", \"System biblioteczny\");\ncy.get(\".funkcje\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "4b54958a-d9d7-4274-b7fb-f8a84bef97f4",
+              "parentUUID": "e4e0371a-f1bb-473e-8629-2f7e36db78fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate between pages",
+              "fullTitle": "Library Management System should navigate between pages",
+              "timedOut": null,
+              "duration": 291,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/landingPage.html\");\n// Navigate to books page\ncy.get('a[href=\"ksiazki.html\"]').click();\ncy.url().should(\"include\", \"/ksiazki.html\");\ncy.get(\"h1\").should(\"contain\", \"Wszystkie Książki\");\n// Navigate to authors page\ncy.get('a[href=\"autorzy.html\"]').click();\ncy.url().should(\"include\", \"/autorzy.html\");\ncy.get(\"h1\").should(\"contain\", \"Wszyscy autorzy\");\n// Navigate back to landing page\ncy.get(\".start-page\").click();\ncy.url().should(\"include\", \"/landingPage.html\");",
+              "err": {},
+              "uuid": "81baf0a3-3a03-4567-a2d3-7bd3811e13a4",
+              "parentUUID": "e4e0371a-f1bb-473e-8629-2f7e36db78fa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "bad4c919-e517-4eed-b89d-f4c1b588ce2c",
+              "title": "Book Management",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load books with correct API endpoint",
+                  "fullTitle": "Library Management System Book Management should load books with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 5270,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/ksiazki.html\");\n// Spy on the actual API call\ncy.intercept(\"GET\", \"/books\").as(\"getBooksAPI\");\ncy.wait(\"@getBooksAPI\").its(\"response.statusCode\").should(\"eq\", 200);\ncy.get(\".output-table\").should(\"be.visible\");\ncy.get(\"thead\").should(\"contain\", \"Tytuł\");\ncy.get(\"thead\").should(\"contain\", \"Id ksiązki\");",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `getBooksAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `getBooksAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (http://localhost:8080/__cypress/runner/cypress_runner.js:76205:18)\n    at Object.errByPath (http://localhost:8080/__cypress/runner/cypress_runner.js:76259:10)\n    at checkForXhr (http://localhost:8080/__cypress/runner/cypress_runner.js:137446:84)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:137472:28)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (http://localhost:8080/__cypress/runner/cypress_runner.js:145828:68)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:145769:14)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (http://localhost:8080/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/library_tests.cy.js:37:9)",
+                    "diff": null
+                  },
+                  "uuid": "e48a0034-2f3b-4a88-8a18-7cba3f019af9",
+                  "parentUUID": "bad4c919-e517-4eed-b89d-f4c1b588ce2c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should load book details with correct API endpoint",
+                  "fullTitle": "Library Management System Book Management should load book details with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 5333,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/ksiazkiDetailed.html\");\ncy.get(\"select.book-id\").should(\"be.visible\");\ncy.get(\"button.check\").click();\n// The URL should be exactly matching your controller's endpoint\ncy.intercept(\"GET\", \"/books/*/details\").as(\"getBookDetailedAPI\");\ncy.wait(\"@getBookDetailedAPI\").its(\"response.statusCode\").should(\"eq\", 200);\ncy.get(\".output-table\").should(\"be.visible\");",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `getBookDetailedAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `getBookDetailedAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (http://localhost:8080/__cypress/runner/cypress_runner.js:76205:18)\n    at Object.errByPath (http://localhost:8080/__cypress/runner/cypress_runner.js:76259:10)\n    at checkForXhr (http://localhost:8080/__cypress/runner/cypress_runner.js:137446:84)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:137472:28)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (http://localhost:8080/__cypress/runner/cypress_runner.js:145828:68)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:145769:14)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (http://localhost:8080/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:5420:46)",
+                    "diff": null
+                  },
+                  "uuid": "bdd5b0df-7994-461f-815b-ec8b71c178a9",
+                  "parentUUID": "bad4c919-e517-4eed-b89d-f4c1b588ce2c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should add a book with correct API endpoint",
+                  "fullTitle": "Library Management System Book Management should add a book with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 619,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/dodajKsiazke.html\");\n// Fill required fields\ncy.get(\"input.title\").type(\"Test Book Title\");\ncy.get(\"select.author-id\").select(\"1\"); // Assuming there's an author with ID 1 in the database\n// Spy on the actual API call\ncy.intercept(\"POST\", \"/books/addBook\").as(\"addBookAPI\");\n// Submit form\ncy.get(\"button.Add\").click();\n// Verify request was made correctly\ncy.wait(\"@addBookAPI\").then(interception => {\n  expect(interception.request.body).to.have.property(\"name\", \"Test Book Title\");\n  expect(interception.response.statusCode).to.eq(200);\n});\ncy.get(\".added\").should(\"not.have.class\", \"invis\").and(\"contain\", \"Dodano ksiązkę\");",
+                  "err": {},
+                  "uuid": "6b6fdbe3-6f3f-413f-b7cc-02f8388f6e9c",
+                  "parentUUID": "bad4c919-e517-4eed-b89d-f4c1b588ce2c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should update a book with correct API endpoint",
+                  "fullTitle": "Library Management System Book Management should update a book with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 5810,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/zaktualizujKsiazke.html\");\n// Select book and update fields\ncy.get(\"select.book-id\").select(\"1\");\ncy.get(\"input.title\").clear().type(\"Updated Book Title\");\n// Spy on the actual API call\ncy.intercept(\"PUT\", \"/books/updateBook/*\").as(\"updateBookAPI\");\n// Submit\ncy.get('button[type=\"submit\"]').click();\n// Verify request was made correctly\ncy.wait(\"@updateBookAPI\").then(interception => {\n  expect(interception.response.statusCode).to.eq(200);\n});\ncy.get(\".updated\").should(\"not.have.class\", \"invis\");",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `updateBookAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `updateBookAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (http://localhost:8080/__cypress/runner/cypress_runner.js:76205:18)\n    at Object.errByPath (http://localhost:8080/__cypress/runner/cypress_runner.js:76259:10)\n    at checkForXhr (http://localhost:8080/__cypress/runner/cypress_runner.js:137446:84)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:137472:28)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (http://localhost:8080/__cypress/runner/cypress_runner.js:145828:68)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:145769:14)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (http://localhost:8080/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/library_tests.cy.js:96:9)",
+                    "diff": null
+                  },
+                  "uuid": "a87bfd2e-cf91-4b2c-912f-84c024568467",
+                  "parentUUID": "bad4c919-e517-4eed-b89d-f4c1b588ce2c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should delete a book with correct API endpoint",
+                  "fullTitle": "Library Management System Book Management should delete a book with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 485,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/usunKsiazke.html\");\n// Select book\ncy.get(\"select.book-id\").select(\"1\");\n// Spy on the actual API call\ncy.intercept(\"DELETE\", \"/books/deleteBook/*\").as(\"deleteBookAPI\");\n// Delete\ncy.get('button[type=\"submit\"]').click();\n// Verify request was made correctly\ncy.wait(\"@deleteBookAPI\").its(\"response.statusCode\").should(\"eq\", 204);\ncy.get(\".deleted\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "6c3933ef-1bf2-4537-8a08-fa1546f49a89",
+                  "parentUUID": "bad4c919-e517-4eed-b89d-f4c1b588ce2c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6b6fdbe3-6f3f-413f-b7cc-02f8388f6e9c",
+                "6c3933ef-1bf2-4537-8a08-fa1546f49a89"
+              ],
+              "failures": [
+                "e48a0034-2f3b-4a88-8a18-7cba3f019af9",
+                "bdd5b0df-7994-461f-815b-ec8b71c178a9",
+                "a87bfd2e-cf91-4b2c-912f-84c024568467"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 17517,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "b0fdba42-91ac-4b5a-b02b-d37b9d563ff3",
+              "title": "Author Management",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load authors with correct API endpoint",
+                  "fullTitle": "Library Management System Author Management should load authors with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 82,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/autorzy.html\");\n// Spy on the actual API call\ncy.intercept(\"GET\", \"/author\").as(\"getAuthorsAPI\");\ncy.wait(\"@getAuthorsAPI\").its(\"response.statusCode\").should(\"eq\", 200);\ncy.get(\".output-table\").should(\"be.visible\");\ncy.get(\"thead\").should(\"contain\", \"Imie\");\ncy.get(\"thead\").should(\"contain\", \"Nazwisko\");\ncy.get(\"thead\").should(\"contain\", \"Id autora\");",
+                  "err": {},
+                  "uuid": "31b1f2a8-e109-43cc-ad55-a34c61a49d44",
+                  "parentUUID": "b0fdba42-91ac-4b5a-b02b-d37b9d563ff3",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should load author details with correct API endpoint",
+                  "fullTitle": "Library Management System Author Management should load author details with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 5257,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/autorzyDetailed.html\");\ncy.get(\"select.author-id\").should(\"be.visible\");\ncy.get(\"button.check\").click();\n// The URL should be exactly matching your controller's endpoint\ncy.intercept(\"GET\", \"/author/*/details\").as(\"getAuthorDetailedAPI\");\ncy.wait(\"@getAuthorDetailedAPI\").its(\"response.statusCode\").should(\"eq\", 200);\ncy.get(\".output-table\").should(\"be.visible\");",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `getAuthorDetailedAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `getAuthorDetailedAPI`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (http://localhost:8080/__cypress/runner/cypress_runner.js:76205:18)\n    at Object.errByPath (http://localhost:8080/__cypress/runner/cypress_runner.js:76259:10)\n    at checkForXhr (http://localhost:8080/__cypress/runner/cypress_runner.js:137446:84)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:137472:28)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (http://localhost:8080/__cypress/runner/cypress_runner.js:145828:68)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:145769:14)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (http://localhost:8080/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:5420:46)",
+                    "diff": null
+                  },
+                  "uuid": "a89936fc-1f94-4a16-a523-1456685007c7",
+                  "parentUUID": "b0fdba42-91ac-4b5a-b02b-d37b9d563ff3",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should add an author with correct API endpoint",
+                  "fullTitle": "Library Management System Author Management should add an author with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 491,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/dodajAutora.html\");\n// Fill required fields\ncy.get(\"input.firstName\").type(\"Test\");\ncy.get(\"input.lastName\").type(\"Author\");\n// Spy on the actual API call\ncy.intercept(\"POST\", \"/author/addAuthor\").as(\"addAuthorAPI\");\n// Submit\ncy.get(\"button.Add\").click();\n// Verify request was made correctly\ncy.wait(\"@addAuthorAPI\").then(interception => {\n  expect(interception.request.body).to.have.property(\"firstName\", \"Test\");\n  expect(interception.request.body).to.have.property(\"lastName\", \"Author\");\n  expect(interception.response.statusCode).to.eq(200);\n});\ncy.get(\".added\").should(\"not.have.class\", \"invis\").and(\"contain\", \"Dodano autora\");",
+                  "err": {},
+                  "uuid": "037e4a40-ccef-4f4f-89c4-8313bee9a666",
+                  "parentUUID": "b0fdba42-91ac-4b5a-b02b-d37b9d563ff3",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should update an author with correct API endpoint",
+                  "fullTitle": "Library Management System Author Management should update an author with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 855,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/zaktualizujAutora.html\");\n// Select author and update fields\ncy.get(\"select.author-id\").select(\"1\");\ncy.get(\"input.firstName\").clear().type(\"Updated\");\ncy.get(\"input.lastName\").clear().type(\"AuthorName\");\n// Spy on the actual API call\ncy.intercept(\"PUT\", \"/author/updateAuthor/*\").as(\"updateAuthorAPI\");\n// Submit\ncy.get('button[type=\"submit\"]').click();\n// Verify request was made correctly\ncy.wait(\"@updateAuthorAPI\").then(interception => {\n  expect(interception.response.statusCode).to.eq(200);\n});\ncy.get(\".updated\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "1e9ea62b-b809-41d6-9ed2-29260eec0e71",
+                  "parentUUID": "b0fdba42-91ac-4b5a-b02b-d37b9d563ff3",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should delete an author with correct API endpoint",
+                  "fullTitle": "Library Management System Author Management should delete an author with correct API endpoint",
+                  "timedOut": null,
+                  "duration": 267,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/usunAutora.html\");\n// Select author\ncy.get(\"select.author-id\").select(\"1\");\n// Spy on the actual API call\ncy.intercept(\"DELETE\", \"/author/deleteAuthor/*\").as(\"deleteAuthorAPI\");\n// Delete\ncy.get('button[type=\"submit\"]').click();\n// Verify request was made correctly\ncy.wait(\"@deleteAuthorAPI\").its(\"response.statusCode\").should(\"eq\", 204);\ncy.get(\".deleted\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "d7eb094a-2636-4f72-a182-129dc053b9d2",
+                  "parentUUID": "b0fdba42-91ac-4b5a-b02b-d37b9d563ff3",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "31b1f2a8-e109-43cc-ad55-a34c61a49d44",
+                "037e4a40-ccef-4f4f-89c4-8313bee9a666",
+                "1e9ea62b-b809-41d6-9ed2-29260eec0e71",
+                "d7eb094a-2636-4f72-a182-129dc053b9d2"
+              ],
+              "failures": [
+                "a89936fc-1f94-4a16-a523-1456685007c7"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 6952,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "2c6d13f9-2670-4008-994b-148e57dd160e",
+              "title": "API Contract Testing",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify book API structure",
+                  "fullTitle": "Library Management System API Contract Testing should verify book API structure",
+                  "timedOut": null,
+                  "duration": 248,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Test that book API returns expected format\ncy.request(\"/books\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\");\n  if (response.body.length > 0) {\n    const book = response.body[0];\n    expect(book).to.have.property(\"id\");\n    expect(book).to.have.property(\"name\");\n    expect(book).to.have.property(\"author\");\n  }\n});\n// Test book details endpoint\ncy.request(\"/books/1/details\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property(\"id\");\n  expect(response.body).to.have.property(\"name\");\n  expect(response.body).to.have.property(\"author\");\n  expect(response.body.author).to.have.property(\"id\");\n  expect(response.body.author).to.have.property(\"firstName\");\n  expect(response.body.author).to.have.property(\"lastName\");\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books/1/details\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books/1/details\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Fri, 02 May 2025 12:26:36 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: \n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/books/1/details\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/books/1/details\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Fri, 02 May 2025 12:26:36 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: \n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/library_tests.cy.js:225:10)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)\n    at wrapped (http://localhost:8080/__cypress/runner/cypress_runner.js:140155:19)",
+                    "diff": null
+                  },
+                  "uuid": "4db634af-9ec2-4405-95f6-2cd3068a231c",
+                  "parentUUID": "2c6d13f9-2670-4008-994b-148e57dd160e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify author API structure",
+                  "fullTitle": "Library Management System API Contract Testing should verify author API structure",
+                  "timedOut": null,
+                  "duration": 200,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Test that author API returns expected format\ncy.request(\"/author\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an(\"array\");\n  if (response.body.length > 0) {\n    const author = response.body[0];\n    expect(author).to.have.property(\"author_id\");\n    expect(author).to.have.property(\"firstName\");\n    expect(author).to.have.property(\"lastName\");\n  }\n});\n// Test author details endpoint\ncy.request(\"/author/1/details\").then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property(\"id\");\n  expect(response.body).to.have.property(\"firstName\");\n  expect(response.body).to.have.property(\"lastName\");\n  expect(response.body).to.have.property(\"books\");\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/1/details\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author/1/details\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Fri, 02 May 2025 12:26:36 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: \n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:8080/author/1/details\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://localhost:8080/author/1/details\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/14.3.2 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n  \"content-length\": \"0\",\n  \"date\": \"Fri, 02 May 2025 12:26:36 GMT\",\n  \"keep-alive\": \"timeout=60\",\n  \"connection\": \"keep-alive\"\n}\nBody: \n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:8080/__cypress/runner/cypress_runner.js:134979:72)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/library_tests.cy.js:250:10)\n    at getRet (http://localhost:8080/__cypress/runner/cypress_runner.js:119616:20)\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:8080/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:8080/__cypress/runner/cypress_runner.js:119627:66)\n    at Context.then (http://localhost:8080/__cypress/runner/cypress_runner.js:119878:21)\n    at wrapped (http://localhost:8080/__cypress/runner/cypress_runner.js:140155:19)",
+                    "diff": null
+                  },
+                  "uuid": "b0c6fc3f-7d2a-4d3c-9a37-e23fead0aee9",
+                  "parentUUID": "2c6d13f9-2670-4008-994b-148e57dd160e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "4db634af-9ec2-4405-95f6-2cd3068a231c",
+                "b0c6fc3f-7d2a-4d3c-9a37-e23fead0aee9"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 448,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "4b54958a-d9d7-4274-b7fb-f8a84bef97f4",
+            "81baf0a3-3a03-4567-a2d3-7bd3811e13a4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 740,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

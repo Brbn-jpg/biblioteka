@@ -1,0 +1,446 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 15,
+    "passes": 12,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-05-02T13:33:27.730Z",
+    "end": "2025-05-02T13:33:35.833Z",
+    "duration": 8103,
+    "testsRegistered": 15,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "89e4367c-fbc3-4dd9-9f24-d8e9c72e3510",
+      "title": "",
+      "fullFile": "cypress/e2e/library_tests.cy.js",
+      "file": "cypress/e2e/library_tests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f03fe654-7a28-4bc4-ad33-5b3bb04acd67",
+          "title": "Library Management System",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should load the landing page",
+              "fullTitle": "Library Management System should load the landing page",
+              "timedOut": null,
+              "duration": 238,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/landingPage.html\");\ncy.get(\"h1\").should(\"contain\", \"Strona startowa do Spring Boot REST Api\");\ncy.get(\"h2\").should(\"contain\", \"System biblioteczny\");\ncy.get(\".funkcje\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "fa028e35-26f5-4191-809d-9d49e7c60313",
+              "parentUUID": "f03fe654-7a28-4bc4-ad33-5b3bb04acd67",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate between pages",
+              "fullTitle": "Library Management System should navigate between pages",
+              "timedOut": null,
+              "duration": 290,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/landingPage.html\");\n// Navigate to books page\ncy.get('a[href=\"ksiazki.html\"]').click();\ncy.url().should(\"include\", \"/ksiazki.html\");\ncy.get(\"h1\").should(\"contain\", \"Wszystkie Książki\");\n// Navigate to authors page\ncy.get('a[href=\"autorzy.html\"]').click();\ncy.url().should(\"include\", \"/autorzy.html\");\ncy.get(\"h1\").should(\"contain\", \"Wszyscy autorzy\");\n// Navigate back to landing page\ncy.get(\".start-page\").click();\ncy.url().should(\"include\", \"/landingPage.html\");",
+              "err": {},
+              "uuid": "c92aecfe-a321-479c-979b-56dd498fed17",
+              "parentUUID": "f03fe654-7a28-4bc4-ad33-5b3bb04acd67",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "17680034-f6f4-485e-8101-ac656b42edd4",
+              "title": "Book Management",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load books page with table",
+                  "fullTitle": "Library Management System Book Management should load books page with table",
+                  "timedOut": null,
+                  "duration": 60,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/ksiazki.html\");\ncy.get(\".output-table\").should(\"be.visible\");\ncy.get(\"thead\").should(\"contain\", \"Tytuł\");\ncy.get(\"thead\").should(\"contain\", \"Id ksiązki\");",
+                  "err": {},
+                  "uuid": "10f8495d-0bcb-485a-a9ce-f6c5e80a5011",
+                  "parentUUID": "17680034-f6f4-485e-8101-ac656b42edd4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should load book details page",
+                  "fullTitle": "Library Management System Book Management should load book details page",
+                  "timedOut": null,
+                  "duration": 65,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/ksiazkiDetailed.html\");\ncy.get(\"select.book-id\").should(\"be.visible\");\ncy.get(\"button.check\").should(\"be.visible\");\ncy.get(\".output-table\").should(\"be.visible\");",
+                  "err": {},
+                  "uuid": "a82ab66e-7060-4e19-8264-ae90b524703e",
+                  "parentUUID": "17680034-f6f4-485e-8101-ac656b42edd4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should validate add book form",
+                  "fullTitle": "Library Management System Book Management should validate add book form",
+                  "timedOut": null,
+                  "duration": 203,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/dodajKsiazke.html\");\n// Submit without required fields\ncy.get(\"button.Add\").click();\ncy.url().should(\"include\", \"/dodajKsiazke.html\");\n// Fill required fields and submit\ncy.get(\"input.title\").type(\"Test Book Title\");\ncy.get(\"select.author-id\").select(1);\ncy.get(\"button.Add\").click();\ncy.get(\".added\").should(\"not.have.class\", \"invis\").and(\"contain\", \"Dodano ksiązkę\");",
+                  "err": {
+                    "message": "SyntaxError: The following error originated from your application code, not from Cypress.\n\n  > Identifier 'apiURL' has already been declared\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                    "estack": "SyntaxError: The following error originated from your application code, not from Cypress.\n\n  > Identifier 'apiURL' has already been declared\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                    "diff": null
+                  },
+                  "uuid": "d0c1fbf4-a004-4097-8746-78ac9fb9b4ca",
+                  "parentUUID": "17680034-f6f4-485e-8101-ac656b42edd4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should test book update functionality",
+                  "fullTitle": "Library Management System Book Management should test book update functionality",
+                  "timedOut": null,
+                  "duration": 737,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/zaktualizujKsiazke.html\");\n// Select book and update fields\ncy.get(\"select.book-id\").select(1);\ncy.get(\"input.title\").type(\"Updated Book Title\");\ncy.get(\"input.author-id\").type(\"1\");\n// Submit and check update message\ncy.get('button[type=\"submit\"]').click();\ncy.get(\".updated\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "fb9ce48d-962e-485b-8117-729dfab01f16",
+                  "parentUUID": "17680034-f6f4-485e-8101-ac656b42edd4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should test book deletion",
+                  "fullTitle": "Library Management System Book Management should test book deletion",
+                  "timedOut": null,
+                  "duration": 267,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/usunKsiazke.html\");\n// Select book and delete\ncy.get(\"select.book-id\").select(1);\ncy.get('button[type=\"submit\"]').click();\ncy.get(\".deleted\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "17386120-6339-4125-bad2-048b16c46450",
+                  "parentUUID": "17680034-f6f4-485e-8101-ac656b42edd4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "10f8495d-0bcb-485a-a9ce-f6c5e80a5011",
+                "a82ab66e-7060-4e19-8264-ae90b524703e",
+                "fb9ce48d-962e-485b-8117-729dfab01f16",
+                "17386120-6339-4125-bad2-048b16c46450"
+              ],
+              "failures": [
+                "d0c1fbf4-a004-4097-8746-78ac9fb9b4ca"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1332,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "97bb38df-5caa-41fa-a6bd-4a634b202755",
+              "title": "Author Management",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load authors page with table",
+                  "fullTitle": "Library Management System Author Management should load authors page with table",
+                  "timedOut": null,
+                  "duration": 58,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/autorzy.html\");\ncy.get(\".output-table\").should(\"be.visible\");\ncy.get(\"thead\").should(\"contain\", \"Imie\");\ncy.get(\"thead\").should(\"contain\", \"Nazwisko\");\ncy.get(\"thead\").should(\"contain\", \"Id autora\");",
+                  "err": {},
+                  "uuid": "88c9bf95-ba2d-4d51-b546-cdf2bca19ab0",
+                  "parentUUID": "97bb38df-5caa-41fa-a6bd-4a634b202755",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should load author details page",
+                  "fullTitle": "Library Management System Author Management should load author details page",
+                  "timedOut": null,
+                  "duration": 60,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/autorzyDetailed.html\");\ncy.get(\"select.author-id\").should(\"be.visible\");\ncy.get(\"button.check\").should(\"be.visible\");\ncy.get(\".output-table\").should(\"be.visible\");",
+                  "err": {},
+                  "uuid": "ac3783e0-4a29-46d6-b252-daf2c2547a80",
+                  "parentUUID": "97bb38df-5caa-41fa-a6bd-4a634b202755",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should validate add author form",
+                  "fullTitle": "Library Management System Author Management should validate add author form",
+                  "timedOut": null,
+                  "duration": 493,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/dodajAutora.html\");\n// Submit without required fields\ncy.get(\"button.Add\").click();\ncy.url().should(\"include\", \"/dodajAutora.html\");\n// Fill required fields and submit\ncy.get(\"input.firstName\").type(\"Test\");\ncy.get(\"input.lastName\").type(\"Author\");\ncy.get(\"button.Add\").click();\ncy.get(\".added\").should(\"not.have.class\", \"invis\").and(\"contain\", \"Dodano autora\");",
+                  "err": {},
+                  "uuid": "e83ed0cf-308b-48d6-99dc-fbcc79cacce1",
+                  "parentUUID": "97bb38df-5caa-41fa-a6bd-4a634b202755",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should test author update functionality",
+                  "fullTitle": "Library Management System Author Management should test author update functionality",
+                  "timedOut": null,
+                  "duration": 703,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/zaktualizujAutora.html\");\n// Select author and update fields\ncy.get(\"select.author-id\").select(1);\ncy.get(\"input.firstName\").type(\"Updated\");\ncy.get(\"input.lastName\").type(\"AuthorName\");\n// Submit and check update message\ncy.get('button[type=\"submit\"]').click();\ncy.get(\".updated\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "1b2d8f82-b3ef-42c8-be9c-742fa65463ca",
+                  "parentUUID": "97bb38df-5caa-41fa-a6bd-4a634b202755",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should test author deletion",
+                  "fullTitle": "Library Management System Author Management should test author deletion",
+                  "timedOut": null,
+                  "duration": 272,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/usunAutora.html\");\n// Select author and delete\ncy.get(\"select.author-id\").select(1);\ncy.get('button[type=\"submit\"]').click();\ncy.get(\".deleted\").should(\"not.have.class\", \"invis\");",
+                  "err": {},
+                  "uuid": "ad41c1a1-9a65-4236-8b5c-89a65f3b52eb",
+                  "parentUUID": "97bb38df-5caa-41fa-a6bd-4a634b202755",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "88c9bf95-ba2d-4d51-b546-cdf2bca19ab0",
+                "ac3783e0-4a29-46d6-b252-daf2c2547a80",
+                "e83ed0cf-308b-48d6-99dc-fbcc79cacce1",
+                "1b2d8f82-b3ef-42c8-be9c-742fa65463ca",
+                "ad41c1a1-9a65-4236-8b5c-89a65f3b52eb"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1586,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "7c3b41ee-9d3c-4d9b-8743-509c25adf786",
+              "title": "UI Elements Visibility",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should ensure all navigation buttons are visible",
+                  "fullTitle": "Library Management System UI Elements Visibility should ensure all navigation buttons are visible",
+                  "timedOut": null,
+                  "duration": 74,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/landingPage.html\");\ncy.get(\"nav table\").should(\"be.visible\");\ncy.get(\"nav a\").should(\"have.length\", 11);\ncy.get(\"nav a\").each($a => {\n  cy.wrap($a).should(\"be.visible\");\n});",
+                  "err": {},
+                  "uuid": "d1bd9cf4-8af9-4fd3-853a-490b7a609ecc",
+                  "parentUUID": "7c3b41ee-9d3c-4d9b-8743-509c25adf786",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should verify form elements are accessible",
+                  "fullTitle": "Library Management System UI Elements Visibility should verify form elements are accessible",
+                  "timedOut": null,
+                  "duration": 175,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Check add book form\ncy.visit(\"/dodajKsiazke.html\");\ncy.get(\"input.title\").should(\"be.visible\").and(\"be.enabled\");\ncy.get(\"select.author-id\").should(\"be.visible\").and(\"be.enabled\");\ncy.get(\"button.Add\").should(\"be.visible\").and(\"be.enabled\");\n// Check add author form\ncy.visit(\"/dodajAutora.html\");\ncy.get(\"input.firstName\").should(\"be.visible\").and(\"be.enabled\");\ncy.get(\"input.lastName\").should(\"be.visible\").and(\"be.enabled\");\ncy.get(\"button.Add\").should(\"be.visible\").and(\"be.enabled\");",
+                  "err": {
+                    "message": "SyntaxError: The following error originated from your application code, not from Cypress.\n\n  > Identifier 'apiURL' has already been declared\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                    "estack": "SyntaxError: The following error originated from your application code, not from Cypress.\n\n  > Identifier 'apiURL' has already been declared\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                    "diff": null
+                  },
+                  "uuid": "4d42904b-af9f-4333-a8b3-7ad1b64d59f5",
+                  "parentUUID": "7c3b41ee-9d3c-4d9b-8743-509c25adf786",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should check for visual bugs in tables",
+                  "fullTitle": "Library Management System UI Elements Visibility should check for visual bugs in tables",
+                  "timedOut": null,
+                  "duration": 4165,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(\"/ksiazki.html\");\ncy.get(\".output-table\").should(\"be.visible\");\ncy.get(\"thead td\").should(\"have.length\", 2);\ncy.visit(\"/autorzy.html\");\ncy.get(\".output-table\").should(\"be.visible\");\ncy.get(\"thead td\").should(\"have.length\", 3);",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Too many elements found. Found '3', expected '2'.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Too many elements found. Found '3', expected '2'.\n    at Context.eval (webpack:///./cypress/e2e/library_tests.cy.js:177:25)",
+                    "diff": "- 3\n+ 2\n"
+                  },
+                  "uuid": "80160482-ef7f-4d18-9c66-fc2aeb39e06f",
+                  "parentUUID": "7c3b41ee-9d3c-4d9b-8743-509c25adf786",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d1bd9cf4-8af9-4fd3-853a-490b7a609ecc"
+              ],
+              "failures": [
+                "4d42904b-af9f-4333-a8b3-7ad1b64d59f5",
+                "80160482-ef7f-4d18-9c66-fc2aeb39e06f"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 4414,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "fa028e35-26f5-4191-809d-9d49e7c60313",
+            "c92aecfe-a321-479c-979b-56dd498fed17"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 528,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

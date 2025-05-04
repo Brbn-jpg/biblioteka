@@ -1,29 +1,30 @@
 {
-	"id": "0fa5b011-0648-4994-b617-5d97f7bc72b6",
+	"id": "324d476a-417e-4197-b47c-9946e7ed7daa",
 	"name": "biblioteka",
-	"timestamp": "2025-04-18T17:58:46.291Z",
+	"timestamp": "2025-05-04T10:23:23.155Z",
 	"collection_id": "39909708-1518ca99-bbc5-4eb2-af80-15ee828d2bf0",
 	"folder_id": 0,
-	"environment_id": "0",
-	"totalPass": 26,
+	"environment_id": "39909708-d4cad279-08ab-46ae-9bb6-dcfd585b3237",
+	"totalPass": 44,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2025-04-18T17:58:45.012Z",
+	"startedAt": "2025-05-04T10:23:22.284Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "70fbfa29-1d88-4323-881a-b089580b1fb2",
 			"name": "/books",
 			"url": "localhost:8080/books",
-			"time": 7,
+			"time": 37,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Response is an array": true
+				"Response is an array": true,
+				"Response contains book objects": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
@@ -31,6 +32,376 @@
 					"fail": 0
 				},
 				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains book objects": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an array": true,
+					"Response contains book objects": true
+				}
+			]
+		},
+		{
+			"id": "1376fb24-d0a6-4ff6-aef4-5bb623ac1bcb",
+			"name": "/books/:id",
+			"url": "localhost:8080/books/1",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 for existing book": true,
+				"Response contains book details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 for existing book": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains book details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200 for existing book": true,
+					"Response contains book details": true
+				}
+			]
+		},
+		{
+			"id": "04bd8f8e-def6-42ec-a892-2171583f771c",
+			"name": "/books/:id/details",
+			"url": "localhost:8080/books/1/details",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains book DTO details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains book DTO details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains book DTO details": true
+				}
+			]
+		},
+		{
+			"id": "fceba394-85e6-427b-a75f-9b3b1f6547f7",
+			"name": "/books/addBook",
+			"url": "localhost:8080/books/addBook",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains added book details": true,
+				"Book count increased": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains added book details": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Book count increased": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains added book details": true,
+					"Book count increased": true
+				}
+			]
+		},
+		{
+			"id": "0e41642c-2fb8-478a-9645-678721cf436a",
+			"name": "/books/updateBook/:id",
+			"url": "localhost:8080/books/updateBook/8",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains updated book details": true,
+				"Book was properly updated in database": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains updated book details": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Book was properly updated in database": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains updated book details": true,
+					"Book was properly updated in database": true
+				}
+			]
+		},
+		{
+			"id": "dfd3ee0b-5f6f-453f-b4c2-aca12e16ba18",
+			"name": "/books/deleteBook/",
+			"url": "localhost:8080/books/deleteBook/8",
+			"time": 12,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204 No Content or 404 if already deleted": true,
+				"Book was properly deleted": true,
+				"Book count decreased": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204 No Content or 404 if already deleted": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Book was properly deleted": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Book count decreased": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 204 No Content or 404 if already deleted": true,
+					"Book was properly deleted": true,
+					"Book count decreased": true
+				}
+			]
+		},
+		{
+			"id": "e606055f-453f-47f4-96a1-a6eb1c9a2322",
+			"name": "/author",
+			"url": "localhost:8080/author",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response is an array": true,
+				"Response contains author objects": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains author objects": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response is an array": true,
+					"Response contains author objects": true
+				}
+			]
+		},
+		{
+			"id": "f7e1b8d1-1243-4ca0-9438-84db9de114fa",
+			"name": "/author/:id",
+			"url": "localhost:8080/author/2",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 for existing author": true,
+				"Response contains author details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 for existing author": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains author details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200 for existing author": true,
+					"Response contains author details": true
+				}
+			]
+		},
+		{
+			"id": "959d5191-726b-47d0-a131-48b2cf8ef7ea",
+			"name": "/author/:id/details",
+			"url": "localhost:8080/author/2/details",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains author DTO details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains author DTO details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains author DTO details": true
+				}
+			]
+		},
+		{
+			"id": "9a17e0f7-bbcf-47d6-88bb-de84033b80e1",
+			"name": "/author/addAuthor",
+			"url": "localhost:8080/author/addAuthor",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains added author details": true,
+				"Author count increased": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains added author details": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Author count increased": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response contains added author details": true,
+					"Author count increased": true
+				}
+			]
+		},
+		{
+			"id": "a3ba31ac-8a1e-417b-9427-cd50489220ca",
+			"name": "/author/updateAuthor/:id",
+			"url": "localhost:8080/author/updateAuthor/7",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response contains updated author details": true,
+				"Author was properly updated in database": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains updated author details": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Author was properly updated in database": {
 					"pass": 1,
 					"fail": 0
 				}
@@ -41,358 +412,95 @@
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Response is an array": true
-				}
-			]
-		},
-		{
-			"id": "1376fb24-d0a6-4ff6-aef4-5bb623ac1bcb",
-			"name": "/books/:id",
-			"url": "localhost:8080/books/1",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200 or 404": true,
-				"Response contains book details if found": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200 or 404": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response contains book details if found": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status code is 200 or 404": true,
-					"Response contains book details if found": true
-				}
-			]
-		},
-		{
-			"id": "04bd8f8e-def6-42ec-a892-2171583f771c",
-			"name": "/books/:id/details",
-			"url": "localhost:8080/books/1/details",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200 or 404": true,
-				"Response contains book details if found": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200 or 404": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response contains book details if found": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status code is 200 or 404": true,
-					"Response contains book details if found": true
-				}
-			]
-		},
-		{
-			"id": "fceba394-85e6-427b-a75f-9b3b1f6547f7",
-			"name": "/books/addBook",
-			"url": "localhost:8080/books/addBook",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Response has valid JSON structure": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response has valid JSON structure": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Response has valid JSON structure": true
-				}
-			]
-		},
-		{
-			"id": "0e41642c-2fb8-478a-9645-678721cf436a",
-			"name": "/books/updateBook/:id",
-			"url": "localhost:8080/books/updateBook/2",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200 or 404": true,
-				"Updated book contains expected properties": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200 or 404": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Updated book contains expected properties": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status code is 200 or 404": true,
-					"Updated book contains expected properties": true
-				}
-			]
-		},
-		{
-			"id": "dfd3ee0b-5f6f-453f-b4c2-aca12e16ba18",
-			"name": "/books/deleteBook/",
-			"url": "localhost:8080/books/deleteBook/8",
-			"time": 3,
-			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
-			},
-			"tests": {
-				"Status code is 204 or 404": true
-			},
-			"testPassFailCounts": {
-				"Status code is 204 or 404": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				3
-			],
-			"allTests": [
-				{
-					"Status code is 204 or 404": true
-				}
-			]
-		},
-		{
-			"id": "e606055f-453f-47f4-96a1-a6eb1c9a2322",
-			"name": "/author",
-			"url": "localhost:8080/author",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Response is an array": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response is an array": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Response is an array": true
-				}
-			]
-		},
-		{
-			"id": "f7e1b8d1-1243-4ca0-9438-84db9de114fa",
-			"name": "/author/:id",
-			"url": "localhost:8080/author/1",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200 or 404": true,
-				"Response contains author details if found": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200 or 404": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response contains author details if found": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status code is 200 or 404": true,
-					"Response contains author details if found": true
-				}
-			]
-		},
-		{
-			"id": "959d5191-726b-47d0-a131-48b2cf8ef7ea",
-			"name": "/author/:id/details",
-			"url": "localhost:8080/author/2/details",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200 or 404": true,
-				"Response contains author details if found": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200 or 404": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response contains author details if found": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status code is 200 or 404": true,
-					"Response contains author details if found": true
-				}
-			]
-		},
-		{
-			"id": "9a17e0f7-bbcf-47d6-88bb-de84033b80e1",
-			"name": "/author/addAuthor",
-			"url": "localhost:8080/author/addAuthor",
-			"time": 4,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Response contains expected author details": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response contains expected author details": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Response contains expected author details": true
-				}
-			]
-		},
-		{
-			"id": "a3ba31ac-8a1e-417b-9427-cd50489220ca",
-			"name": "/author/updateAuthor/:id",
-			"url": "localhost:8080/author/updateAuthor/1",
-			"time": 5,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200 or 404": true,
-				"Updated author contains expected properties": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200 or 404": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Updated author contains expected properties": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status code is 200 or 404": true,
-					"Updated author contains expected properties": true
+					"Response contains updated author details": true,
+					"Author was properly updated in database": true
 				}
 			]
 		},
 		{
 			"id": "58c73168-301e-4b33-8d00-b2fb1ff651eb",
 			"name": "/author/deleteAuthor/:id",
-			"url": "localhost:8080/author/deleteAuthor/3",
-			"time": 6,
+			"url": "localhost:8080/author/deleteAuthor/7",
+			"time": 10,
 			"responseCode": {
 				"code": 204,
 				"name": "No Content"
 			},
 			"tests": {
-				"Status code is 204 or 404": true
+				"Status code is 204 No Content or 404 if already deleted": true,
+				"Author was properly deleted": true
 			},
 			"testPassFailCounts": {
-				"Status code is 204 or 404": {
+				"Status code is 204 No Content or 404 if already deleted": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Author was properly deleted": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				10
 			],
 			"allTests": [
 				{
-					"Status code is 204 or 404": true
+					"Status code is 204 No Content or 404 if already deleted": true,
+					"Author was properly deleted": true
+				}
+			]
+		},
+		{
+			"id": "acef4c20-6cd5-4019-9c2e-b63f30a70d19",
+			"name": "/book/:id",
+			"url": "localhost:8080/books/999999999",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 for non-existent book": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 for non-existent book": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 404 for non-existent book": true
+				}
+			]
+		},
+		{
+			"id": "4b319e06-483f-46f5-baff-2e816bbe9b91",
+			"name": "/book/:id/details",
+			"url": "localhost:8080/books/9999999/details",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 for non-existent book": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 for non-existent book": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 404 for non-existent book": true
 				}
 			]
 		},
@@ -400,26 +508,80 @@
 			"id": "75fa65c7-ab3d-44bb-a86c-f392a7ae531e",
 			"name": "/author/:id",
 			"url": "localhost:8080/author/99999",
-			"time": 3,
+			"time": 5,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
 			},
 			"tests": {
-				"Should return 404 for non-existent author ID": true
+				"Status code is 404 for non-existent author": true
 			},
 			"testPassFailCounts": {
-				"Should return 404 for non-existent author ID": {
+				"Status code is 404 for non-existent author": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				3
+				5
 			],
 			"allTests": [
 				{
-					"Should return 404 for non-existent author ID": true
+					"Status code is 404 for non-existent author": true
+				}
+			]
+		},
+		{
+			"id": "96ba6660-9648-4ec5-8727-df2cc3d1d9f3",
+			"name": "/author/:id/details",
+			"url": "localhost:8080/author/99999/details",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 for non-existent author": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 for non-existent author": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 404 for non-existent author": true
+				}
+			]
+		},
+		{
+			"id": "ad08ff9c-7c85-4229-bee3-5af5b273a6b6",
+			"name": "/books/addBook",
+			"url": "localhost:8080/books/addBook",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Should return 400 when title is empty": true
+			},
+			"testPassFailCounts": {
+				"Should return 400 when title is empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Should return 400 when title is empty": true
 				}
 			]
 		},
@@ -451,10 +613,172 @@
 			]
 		},
 		{
+			"id": "32cae886-61f0-4c27-92af-298d69980b72",
+			"name": "/author/updateBook/:id non existent id",
+			"url": "localhost:8080/author/updateBook/999999",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Returns 404 when trying to update a non-existent book": true
+			},
+			"testPassFailCounts": {
+				"Returns 404 when trying to update a non-existent book": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Returns 404 when trying to update a non-existent book": true
+				}
+			]
+		},
+		{
+			"id": "be8cd4fe-7a61-4cd9-aa76-8de71bab7fae",
+			"name": "/author/updateBook/:id empty body",
+			"url": "localhost:8080/author/updateAuthor/3",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Returns 400 when body is empty": true
+			},
+			"testPassFailCounts": {
+				"Returns 400 when body is empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Returns 400 when body is empty": true
+				}
+			]
+		},
+		{
+			"id": "009e37bf-4afb-4571-b5f0-a53c96eff190",
+			"name": "/author/updateBook/:id not full payload",
+			"url": "localhost:8080/author/updateAuthor/3",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Returns 400 when 'title' is missing in body": true
+			},
+			"testPassFailCounts": {
+				"Returns 400 when 'title' is missing in body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Returns 400 when 'title' is missing in body": true
+				}
+			]
+		},
+		{
+			"id": "f233496f-43fe-45e9-aa78-9fc7b173ea92",
+			"name": "/author/updateBook/:id bad data type",
+			"url": "localhost:8080/author/updateAuthor/3",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Returns 400 when 'year' is a string instead of a number": true
+			},
+			"testPassFailCounts": {
+				"Returns 400 when 'year' is a string instead of a number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Returns 400 when 'year' is a string instead of a number": true
+				}
+			]
+		},
+		{
+			"id": "2c7bc8da-621d-444f-9b7f-8fb568b853d3",
+			"name": "/author/updateBook/:id additional fields",
+			"url": "localhost:8080/author/updateAuthor/3",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Returns 400 or ignores extra fields like 'rating'": true
+			},
+			"testPassFailCounts": {
+				"Returns 400 or ignores extra fields like 'rating'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Returns 400 or ignores extra fields like 'rating'": true
+				}
+			]
+		},
+		{
+			"id": "17f7d149-aaa9-453d-97bb-e53a4de852af",
+			"name": "/author/updateBook/:id long title",
+			"url": "localhost:8080/author/updateAuthor/3",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Returns 400 when 'title' is too long": true
+			},
+			"testPassFailCounts": {
+				"Returns 400 when 'title' is too long": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Returns 400 when 'title' is too long": true
+				}
+			]
+		},
+		{
 			"id": "ac2fddc7-7b4b-4c6b-b79d-3f078be4a2e7",
 			"name": "/author/updateAuthor/:id",
 			"url": "localhost:8080/author/updateAuthor/3",
-			"time": 4,
+			"time": 3,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -469,44 +793,17 @@
 				}
 			},
 			"times": [
-				4
+				3
 			],
 			"allTests": [
 				{
 					"Should return 400 when firstName is not a string": true
 				}
 			]
-		},
-		{
-			"id": "ad08ff9c-7c85-4229-bee3-5af5b273a6b6",
-			"name": "/books/addBook",
-			"url": "localhost:8080/books/addBook",
-			"time": 4,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Should return 400 when title is empty": true
-			},
-			"testPassFailCounts": {
-				"Should return 400 when title is empty": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Should return 400 when title is empty": true
-				}
-			]
 		}
 	],
 	"count": 1,
-	"totalTime": 72,
+	"totalTime": 205,
 	"collection": {
 		"requests": [
 			{
@@ -558,20 +855,56 @@
 				"method": "DELETE"
 			},
 			{
+				"id": "acef4c20-6cd5-4019-9c2e-b63f30a70d19",
+				"method": "GET"
+			},
+			{
+				"id": "4b319e06-483f-46f5-baff-2e816bbe9b91",
+				"method": "GET"
+			},
+			{
 				"id": "75fa65c7-ab3d-44bb-a86c-f392a7ae531e",
 				"method": "GET"
+			},
+			{
+				"id": "96ba6660-9648-4ec5-8727-df2cc3d1d9f3",
+				"method": "GET"
+			},
+			{
+				"id": "ad08ff9c-7c85-4229-bee3-5af5b273a6b6",
+				"method": "POST"
 			},
 			{
 				"id": "3a063289-6d1a-4380-a678-c291e55f658a",
 				"method": "POST"
 			},
 			{
-				"id": "ac2fddc7-7b4b-4c6b-b79d-3f078be4a2e7",
+				"id": "32cae886-61f0-4c27-92af-298d69980b72",
 				"method": "PUT"
 			},
 			{
-				"id": "ad08ff9c-7c85-4229-bee3-5af5b273a6b6",
-				"method": "POST"
+				"id": "be8cd4fe-7a61-4cd9-aa76-8de71bab7fae",
+				"method": "PUT"
+			},
+			{
+				"id": "009e37bf-4afb-4571-b5f0-a53c96eff190",
+				"method": "PUT"
+			},
+			{
+				"id": "f233496f-43fe-45e9-aa78-9fc7b173ea92",
+				"method": "PUT"
+			},
+			{
+				"id": "2c7bc8da-621d-444f-9b7f-8fb568b853d3",
+				"method": "PUT"
+			},
+			{
+				"id": "17f7d149-aaa9-453d-97bb-e53a4de852af",
+				"method": "PUT"
+			},
+			{
+				"id": "ac2fddc7-7b4b-4c6b-b79d-3f078be4a2e7",
+				"method": "PUT"
 			}
 		]
 	}

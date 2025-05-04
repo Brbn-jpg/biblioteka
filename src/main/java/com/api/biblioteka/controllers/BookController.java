@@ -59,6 +59,7 @@ public class BookController {
             bookDTO.setId(book.get().getId());
             bookDTO.setName(book.get().getName());
             bookDTO.setAuthor(new AuthorDTO(book.get().getAuthor().getAuthor_id(),book.get().getAuthor().getFirstName(), book.get().getAuthor().getLastName()));
+            // bookDTO.setAuthor(new AuthorDTO(book.get().getAuthor().getAuthor_id(),book.get().getAuthor().getFirstName(), book.get().getAuthor().getLastName()+'x'));
 
             return ResponseEntity.ok(bookDTO);
         }else{
@@ -69,7 +70,7 @@ public class BookController {
     @PostMapping("/addBook")
     public ResponseEntity<BookDTO> addBook(@RequestBody Map<String, Object> payload) {
         try {
-            String name = (String) payload.get("name");
+            String name = (String) payload.get("name" );
             Long authorId = Long.valueOf((String) payload.get("author_id"));
             Optional<Author> authorOptional = authorRepository.findById(authorId);
     
@@ -83,6 +84,7 @@ public class BookController {
                 BookDTO bookDTO = new BookDTO();
                 bookDTO.setId(savedBook.getId());
                 bookDTO.setName(savedBook.getName());
+                // bookDTO.setName("x");
                 bookDTO.setAuthor(
                     new BookDTO.AuthorDTO(
                         author.getAuthor_id(),
@@ -99,18 +101,17 @@ public class BookController {
             return ResponseEntity.status(500).build();
         }
     }
-    
 
     @PutMapping("/updateBook/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
         Optional<Book> optionalBook = bookRepository.findById(id);
         if (optionalBook.isPresent()) {
             Book book = optionalBook.get();
-            // book.setName("abc");
             book.setName(bookDetails.getName());
 
             if (bookDetails.getAuthor() != null && bookDetails.getAuthor().getAuthor_id() != null) {
                 Optional<Author> authorOptional = authorRepository.findById(bookDetails.getAuthor().getAuthor_id());
+                // Optional<Author> authorOptional = authorRepository.findById(bookDetails.getAuthor().getAuthor_id() + 'x');
                 if (authorOptional.isPresent()) {
                     book.setAuthor(authorOptional.get());
                 } else {

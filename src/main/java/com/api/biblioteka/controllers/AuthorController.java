@@ -55,6 +55,7 @@ public class AuthorController {
 
                 authorDTO.setId(author.get().getAuthor_id());
                 authorDTO.setFirstName(author.get().getFirstName());
+                // authorDTO.setFirstName(author.get().getFirstName() + 'x');
                 authorDTO.setLastName(author.get().getLastName());
                 authorDTO.setBooks(author.get().getBooks());
 
@@ -86,6 +87,7 @@ public class AuthorController {
                 if (updatedAuthor.getFirstName() != null && !updatedAuthor.getFirstName().isEmpty()) {
                     // author.setFirstName("abc");
                     author.setFirstName(updatedAuthor.getFirstName());
+                    // author.setFirstName(updatedAuthor.getFirstName() + 'x');
                 }
                 if (updatedAuthor.getLastName() != null && !updatedAuthor.getLastName().isEmpty()) {
                     author.setLastName(updatedAuthor.getLastName());
